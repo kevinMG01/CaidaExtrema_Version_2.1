@@ -1,11 +1,68 @@
-[gd_scene load_steps=3 format=3 uid="uid://8pc0yxxn8y0w"]
+[gd_scene load_steps=6 format=3 uid="uid://8pc0yxxn8y0w"]
 
 [ext_resource type="Script" uid="uid://cqiemof76c8bq" path="res://escenas/player/player.gd" id="1_wf2ox"]
+[ext_resource type="Texture2D" uid="uid://l0t27x7k4orb" path="res://escenas/player/Sin título.png" id="2_nhaom"]
+[ext_resource type="Texture2D" uid="uid://1bgxske2org1" path="res://icon.svg" id="3_gpfcj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h2u01"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gpfcj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nhaom")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nhaom")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_nhaom")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_nhaom")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gpfcj")
+}],
+"loop": false,
+"name": &"abrir_paracaidas",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"paracaidas_equipada",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"quitar_paracaidas",
+"speed": 5.0
+}]
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_wf2ox")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_h2u01")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.0375194, 0.0543044)
+sprite_frames = SubResource("SpriteFrames_gpfcj")
+animation = &"paracaidas_equipada"
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
