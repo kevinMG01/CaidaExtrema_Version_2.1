@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
-var SPEED = 300.0
-var JUMP_VELOCITY = -400.0
-var gravity = 200
+var SPEED :float = 300.0
+var JUMP_VELOCITY : float = -500.0
+var gravity : float = 1.807 
+var masa : float = 0.75
 
 var state = "idle"
 var paracaidas_activado = false
@@ -17,22 +18,23 @@ func _physics_process(delta: float) -> void:
 	update_state(direction)
 	move_and_slide()
 
+
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		velocity.y = JUMP_VELOCITY * masa
 	elif Input.is_action_just_pressed("ui_up") and not is_on_floor() and not paracaidas_activado:
 		set_state("abrir_paracaidas")
 
 func move(direction):
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = direction * SPEED / masa
 		$AnimatedSprite2D.flip_h = direction < 0
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 func aplicar_gravedad(delta):
 	if not is_on_floor():
-		velocity.y += gravity * delta
+		velocity.y += gravity * masa
 
 func update_state(direction):
 	# Evita interrumpir animaciones importantes
@@ -41,7 +43,10 @@ func update_state(direction):
 
 	if not is_on_floor():
 		if paracaidas_activado:
-			set_state("paracaidas_equipada")
+			if direction != 0:
+				set_state("run_paracaidas")
+			else:
+				set_state("paracaidas_equipada")
 		else:
 			set_state("jump")
 	else:
@@ -78,12 +83,14 @@ func set_state(new_state):
 			paracaidas_activado = true
 			$AnimatedSprite2D.play("paracaidas_equipada")
 			print(state)
+		"run_paracaidas":
+			$AnimatedSprite2D.play("run_paracaidas")
+			print(state)
 		"quitar_paracaidas":
 			$AnimatedSprite2D.play("quitar_paracaidas")
 			print(state)
 
 func _on_animated_sprite_2d_animation_finished() -> void:
-	print("hola")
 	if state == "abrir_paracaidas":
 		set_state("paracaidas_equipada")
 	elif state == "quitar_paracaidas":
