@@ -1,8 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://8pc0yxxn8y0w"]
+[gd_scene load_steps=15 format=3 uid="uid://8pc0yxxn8y0w"]
 
 [ext_resource type="Script" uid="uid://cqiemof76c8bq" path="res://escenas/player/player.gd" id="1_wf2ox"]
+[ext_resource type="Texture2D" uid="uid://cgguid3voh166" path="res://sprites/player/SUELO/Idle/PJIdel1.png" id="2_ho4aw"]
 [ext_resource type="Texture2D" uid="uid://deyb3423cl7mm" path="res://sprites/player/SUELO/run/PJRun1.png" id="2_w20qm"]
+[ext_resource type="Texture2D" uid="uid://doxqj3rlpk85u" path="res://sprites/player/SUELO/Idle/PJIdel2.png" id="3_2m45u"]
 [ext_resource type="Texture2D" uid="uid://08gu8g7lhagv" path="res://sprites/player/SUELO/run/PJRun2.png" id="3_pdlcs"]
+[ext_resource type="Texture2D" uid="uid://dawqtaplwvoqn" path="res://sprites/player/SUELO/Idle/PJIdel3.png" id="4_c0xfk"]
 [ext_resource type="Texture2D" uid="uid://bh16o0850evrd" path="res://sprites/player/SUELO/run/PJRun3.png" id="4_s2are"]
 [ext_resource type="Texture2D" uid="uid://c8cwkpdtnn1j6" path="res://sprites/player/SUELO/run/PJRun4.png" id="5_ho4aw"]
 [ext_resource type="Texture2D" uid="uid://cmqg2caatep78" path="res://sprites/player/SUELO/run/PJRun5.png" id="6_2m45u"]
@@ -10,12 +13,21 @@
 [ext_resource type="Texture2D" uid="uid://kuidfinhjwvm" path="res://sprites/player/SUELO/run/PJRun7.png" id="8_6f7ky"]
 [ext_resource type="Texture2D" uid="uid://cemsu7vtf7ebb" path="res://sprites/player/SUELO/run/PJRun8.png" id="9_uapl2"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_h2u01"]
-radius = 57.0701
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6f7ky"]
+size = Vector2(35, 98)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gpfcj"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ho4aw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2m45u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_c0xfk")
+}],
 "loop": true,
 "name": &"Idle",
 "speed": 5.0
@@ -79,13 +91,12 @@ animations = [{
 script = ExtResource("1_wf2ox")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_h2u01")
+position = Vector2(-0.5, 12)
+shape = SubResource("RectangleShape2D_6f7ky")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gpfcj")
-animation = &"Run"
-frame = 7
-frame_progress = 1.0
+animation = &"Idle"
 
 [node name="visualNode" type="Node2D" parent="."]
 
