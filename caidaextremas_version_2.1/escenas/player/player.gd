@@ -5,11 +5,13 @@ var JUMP_VELOCITY : float = -500.0
 var gravity : float = 1.807 
 var masa : float = 0.75
 
-var state = "idle"
-var paracaidas_activado = false
+var state: String
+
+var paracaidas_activado = true
 
 func _ready() -> void:
-	set_state("idle")
+	set_state("quitar_paracaidas")
+
 
 func _physics_process(delta: float) -> void:
 	aplicar_gravedad(delta)
@@ -18,12 +20,15 @@ func _physics_process(delta: float) -> void:
 	update_state(direction)
 	move_and_slide()
 
-
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY * masa
 	elif Input.is_action_just_pressed("ui_up") and not is_on_floor() and not paracaidas_activado:
 		set_state("abrir_paracaidas")
+
+	elif Input.is_action_just_pressed("ui_up") and not is_on_floor() and paracaidas_activado:
+		set_state("quitar_paracaidas")
+
 
 func move(direction):
 	if direction:
@@ -37,28 +42,34 @@ func aplicar_gravedad(delta):
 		velocity.y += gravity * masa
 
 func update_state(direction):
-	# Evita interrumpir animaciones importantes
-	if state in ["abrir_paracaidas", "quitar_paracaidas"]:
+	if state in ["abrir_paracaidas"]:
 		return
 
-	if not is_on_floor():
-		if paracaidas_activado:
-			if direction != 0:
-				set_state("run_paracaidas")
-			else:
-				set_state("paracaidas_equipada")
-		else:
-			set_state("jump")
-	else:
-		paracaidas_activado = false
-		if paracaidas_activado:
-			set_state("quitar_paracaidas")
-		elif direction != 0:
-			set_state("run")
-		else:
-			set_state("idle")
+	# Definir grupos de estados
+	var estados_suelo := ["idle", "run", "jump",]
+	var estados_paracaidas := ["paracaidas_equipada", "quitar_paracaidas"]
 
-func set_state(new_state):
+# determina cual es el modo acutual, si esta en el suelo o en el aire
+	if state in estados_suelo:
+		if velocity.y < 0:#salto
+			set_state("jump")
+		elif velocity.y > 0:#baja
+			set_state("jump")
+		elif direction == 0:
+			set_state("idle")
+		else:
+			set_state("run")
+	elif state in estados_paracaidas:
+		if paracaidas_activado:
+			set_state("paracaidas_equipada")
+		else:
+			set_state("quitar_paracaidas")
+
+	if is_on_floor() and state not in ["run", "jump"]:
+		set_state("idle")
+
+
+func set_state(new_state): # no permite un estado repetido.
 	if state == new_state:
 		return
 
@@ -70,7 +81,6 @@ func set_state(new_state):
 			$AnimatedSprite2D.play("Idle")
 			print(state)
 		"run":
-			paracaidas_activado = false
 			$AnimatedSprite2D.play("Run")
 			print(state)
 		"jump":
@@ -83,15 +93,11 @@ func set_state(new_state):
 			paracaidas_activado = true
 			$AnimatedSprite2D.play("paracaidas_equipada")
 			print(state)
-		"run_paracaidas":
-			$AnimatedSprite2D.play("run_paracaidas")
-			print(state)
 		"quitar_paracaidas":
+			paracaidas_activado = false
 			$AnimatedSprite2D.play("quitar_paracaidas")
 			print(state)
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if state == "abrir_paracaidas":
 		set_state("paracaidas_equipada")
-	elif state == "quitar_paracaidas":
-		set_state("idle")
