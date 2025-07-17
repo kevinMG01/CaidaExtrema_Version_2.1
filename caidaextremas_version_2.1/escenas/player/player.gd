@@ -10,6 +10,7 @@ var paracaidas_activado = true # se ejecuta cuando esta en el estado_aire y dete
 const GRAVEDAD_NORMAL : float = 700.0
 const GRAVEDAD_PARACAIDAS : float = 300.0
 
+
 func _ready() -> void:
 	set_state("quitar_paracaidas")
 
@@ -81,6 +82,8 @@ func set_state(new_state):
 
 	state = new_state
 
+	collisionshape()
+
 	match state:
 		"idle":
 			paracaidas_activado = false
@@ -110,3 +113,19 @@ func set_state(new_state):
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if state == "abrir_paracaidas":
 		set_state("paracaidas_equipada")
+
+
+func collisionshape():
+ #Oculta todos los collision shapes
+	var collision_nodes = [$CollisionShape2D, $fall, $sin_paracaidas]
+	for node in collision_nodes:
+		node.visible = false
+
+	# Muestra solo el que corresponde
+	match state:
+		"idle", "run", "paracaidas_equipada":
+			$CollisionShape2D.visible = true
+		"fall", "jump":
+			$fall.visible = true
+		"quitar_paracaidas":
+			$sin_paracaidas.visible = true

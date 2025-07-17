@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://yn5a0qhdejhy"]
+[gd_scene load_steps=22 format=3 uid="uid://yn5a0qhdejhy"]
 
 [ext_resource type="Script" uid="uid://cqiemof76c8bq" path="res://escenas/player/player.gd" id="1_wf2ox"]
 [ext_resource type="Texture2D" uid="uid://cgguid3voh166" path="res://sprites/player/SUELO/Idle/PJIdel1.png" id="2_ho4aw"]
@@ -19,7 +19,13 @@
 [ext_resource type="Texture2D" uid="uid://7nsisfxesc0f" path="res://sprites/player/AIRE/sin_paracaidas/sin_paracaidas.png" id="14_c0xfk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6f7ky"]
-size = Vector2(35, 98)
+size = Vector2(35, 99)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_poghx"]
+size = Vector2(35, 81)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ggbhw"]
+size = Vector2(60, 51)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gpfcj"]
 animations = [{
@@ -114,23 +120,26 @@ animations = [{
 "loop": true,
 "name": &"quitar_paracaidas",
 "speed": 5.0
-}, {
-"frames": [],
-"loop": false,
-"name": &"run_paracaidas",
-"speed": 25.0
 }]
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_wf2ox")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 12)
+position = Vector2(-0.5, 12.5)
 shape = SubResource("RectangleShape2D_6f7ky")
+
+[node name="fall" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 3.5)
+shape = SubResource("RectangleShape2D_poghx")
+
+[node name="sin_paracaidas" type="CollisionShape2D" parent="."]
+position = Vector2(2, 32.5)
+shape = SubResource("RectangleShape2D_ggbhw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gpfcj")
-animation = &"Jump"
+animation = &"abrir_paracaidas"
 
 [node name="visualNode" type="Node2D" parent="."]
 
