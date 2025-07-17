@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var SPEED :float = 300.0
-var JUMP_VELOCITY : float = -500.0
+var JUMP_VELOCITY : float = -200.0
 var gravity : float = 1.807 
 var masa : float = 0.75
 
@@ -53,8 +53,9 @@ func update_state(direction):
 	if state in estados_suelo:
 		if velocity.y < 0:#salto
 			set_state("jump")
+
 		elif velocity.y > 0:#baja
-			set_state("jump")
+			set_state("fall")
 		elif direction == 0:
 			set_state("idle")
 		else:
@@ -85,6 +86,9 @@ func set_state(new_state): # no permite un estado repetido.
 			print(state)
 		"jump":
 			$AnimatedSprite2D.play("Jump")
+			print(state)
+		"fall":
+			$AnimatedSprite2D.play("Fall")
 			print(state)
 		"abrir_paracaidas":
 			$AnimatedSprite2D.play("abrir_paracaidas")
