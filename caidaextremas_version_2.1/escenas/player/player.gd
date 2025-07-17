@@ -1,13 +1,14 @@
 extends CharacterBody2D
-
-var SPEED :float = 300.0
-var JUMP_VELOCITY : float = -200.0
-var gravity : float = 1.807 
-var masa : float = 0.75
+ 
+var SPEED :float = 500.0         
+var JUMP_VELOCITY : float = -400.0
 
 var state: String
 
-var paracaidas_activado = true
+var paracaidas_activado = true # se ejecuta cuando esta en el estado_aire y determina si tiene el paracaidas o se la quito
+
+const GRAVEDAD_NORMAL : float = 700.0
+const GRAVEDAD_PARACAIDAS : float = 300.0
 
 func _ready() -> void:
 	set_state("quitar_paracaidas")
@@ -20,26 +21,31 @@ func _physics_process(delta: float) -> void:
 	update_state(direction)
 	move_and_slide()
 
+
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY * masa
-	elif Input.is_action_just_pressed("ui_up") and not is_on_floor() and not paracaidas_activado:
-		set_state("abrir_paracaidas")
-
-	elif Input.is_action_just_pressed("ui_up") and not is_on_floor() and paracaidas_activado:
-		set_state("quitar_paracaidas")
+		velocity.y = JUMP_VELOCITY
+	elif Input.is_action_just_pressed("ui_up") and not is_on_floor():
+		if paracaidas_activado:
+			set_state("quitar_paracaidas")
+		else:
+			set_state("abrir_paracaidas")
 
 
 func move(direction):
 	if direction:
-		velocity.x = direction * SPEED / masa
+		velocity.x = direction * SPEED 
 		$AnimatedSprite2D.flip_h = direction < 0
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 func aplicar_gravedad(delta):
 	if not is_on_floor():
-		velocity.y += gravity * masa
+		if paracaidas_activado:
+			velocity.y += GRAVEDAD_PARACAIDAS * delta
+			velocity.y = min(velocity.y, 300) # limita velocidad máxima de caída con paracaídas
+		else:
+			velocity.y += GRAVEDAD_NORMAL * delta
 
 func update_state(direction):
 	if state in ["abrir_paracaidas"]:
@@ -49,7 +55,7 @@ func update_state(direction):
 	var estados_suelo := ["idle", "run", "jump",]
 	var estados_paracaidas := ["paracaidas_equipada", "quitar_paracaidas"]
 
-# determina cual es el modo acutual, si esta en el suelo o en el aire
+# determina cual es el modo acutual, si esta en el suelo o en el aire y ejecuta solo un estado
 	if state in estados_suelo:
 		if velocity.y < 0:#salto
 			set_state("jump")
@@ -69,9 +75,8 @@ func update_state(direction):
 	if is_on_floor() and state not in ["run", "jump"]:
 		set_state("idle")
 
-
-func set_state(new_state): # no permite un estado repetido.
-	if state == new_state:
+func set_state(new_state):
+	if state == new_state: # no permite un estado repetido.
 		return
 
 	state = new_state

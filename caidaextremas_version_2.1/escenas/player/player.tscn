@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://8pc0yxxn8y0w"]
+[gd_scene load_steps=20 format=3 uid="uid://yn5a0qhdejhy"]
 
 [ext_resource type="Script" uid="uid://cqiemof76c8bq" path="res://escenas/player/player.gd" id="1_wf2ox"]
 [ext_resource type="Texture2D" uid="uid://cgguid3voh166" path="res://sprites/player/SUELO/Idle/PJIdel1.png" id="2_ho4aw"]
