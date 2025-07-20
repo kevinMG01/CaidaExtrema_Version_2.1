@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://yn5a0qhdejhy"]
+[gd_scene load_steps=23 format=3 uid="uid://yn5a0qhdejhy"]
 
 [ext_resource type="Script" uid="uid://cqiemof76c8bq" path="res://escenas/player/player.gd" id="1_wf2ox"]
 [ext_resource type="Texture2D" uid="uid://cgguid3voh166" path="res://sprites/player/SUELO/Idle/PJIdel1.png" id="2_ho4aw"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cemsu7vtf7ebb" path="res://sprites/player/SUELO/run/PJRun8.png" id="9_uapl2"]
 [ext_resource type="Texture2D" uid="uid://liqhtd83jeuf" path="res://sprites/player/AIRE/paracaida_equipada/conparacaidasIdel.png" id="13_2m45u"]
 [ext_resource type="Texture2D" uid="uid://7nsisfxesc0f" path="res://sprites/player/AIRE/sin_paracaidas/sin_paracaidas.png" id="14_c0xfk"]
+[ext_resource type="Script" uid="uid://dm3ci0dl1741a" path="res://escenas/player/camera_2d.gd" id="18_ggbhw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6f7ky"]
 size = Vector2(35, 99)
@@ -142,5 +143,16 @@ sprite_frames = SubResource("SpriteFrames_gpfcj")
 animation = &"abrir_paracaidas"
 
 [node name="visualNode" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 148)
+limit_right = 1500
+limit_smoothed = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_vertical_offset = -1.0
+drag_top_margin = 0.05
+editor_draw_drag_margin = true
+script = ExtResource("18_ggbhw")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
