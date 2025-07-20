@@ -1,11 +1,146 @@
-[gd_scene load_steps=3 format=3 uid="uid://8pc0yxxn8y0w"]
+[gd_scene load_steps=22 format=3 uid="uid://yn5a0qhdejhy"]
 
 [ext_resource type="Script" uid="uid://cqiemof76c8bq" path="res://escenas/player/player.gd" id="1_wf2ox"]
+[ext_resource type="Texture2D" uid="uid://cgguid3voh166" path="res://sprites/player/SUELO/Idle/PJIdel1.png" id="2_ho4aw"]
+[ext_resource type="Texture2D" uid="uid://lk5thase3dcj" path="res://sprites/player/SUELO/jump/PJJump3.png" id="2_poghx"]
+[ext_resource type="Texture2D" uid="uid://deyb3423cl7mm" path="res://sprites/player/SUELO/run/PJRun1.png" id="2_w20qm"]
+[ext_resource type="Texture2D" uid="uid://doxqj3rlpk85u" path="res://sprites/player/SUELO/Idle/PJIdel2.png" id="3_2m45u"]
+[ext_resource type="Texture2D" uid="uid://08gu8g7lhagv" path="res://sprites/player/SUELO/run/PJRun2.png" id="3_pdlcs"]
+[ext_resource type="Texture2D" uid="uid://dawqtaplwvoqn" path="res://sprites/player/SUELO/Idle/PJIdel3.png" id="4_c0xfk"]
+[ext_resource type="Texture2D" uid="uid://bh16o0850evrd" path="res://sprites/player/SUELO/run/PJRun3.png" id="4_s2are"]
+[ext_resource type="Texture2D" uid="uid://c8cwkpdtnn1j6" path="res://sprites/player/SUELO/run/PJRun4.png" id="5_ho4aw"]
+[ext_resource type="Texture2D" uid="uid://ltke1nfkbksj" path="res://sprites/player/SUELO/jump/PJJump1.png" id="5_uapl2"]
+[ext_resource type="Texture2D" uid="uid://cmqg2caatep78" path="res://sprites/player/SUELO/run/PJRun5.png" id="6_2m45u"]
+[ext_resource type="Texture2D" uid="uid://pq8sdnxxy8ma" path="res://sprites/player/SUELO/jump/PJJump2.png" id="6_poghx"]
+[ext_resource type="Texture2D" uid="uid://ct4rd8cgoywqm" path="res://sprites/player/SUELO/run/PJRun6.png" id="7_c0xfk"]
+[ext_resource type="Texture2D" uid="uid://kuidfinhjwvm" path="res://sprites/player/SUELO/run/PJRun7.png" id="8_6f7ky"]
+[ext_resource type="Texture2D" uid="uid://cemsu7vtf7ebb" path="res://sprites/player/SUELO/run/PJRun8.png" id="9_uapl2"]
+[ext_resource type="Texture2D" uid="uid://liqhtd83jeuf" path="res://sprites/player/AIRE/paracaida_equipada/conparacaidasIdel.png" id="13_2m45u"]
+[ext_resource type="Texture2D" uid="uid://7nsisfxesc0f" path="res://sprites/player/AIRE/sin_paracaidas/sin_paracaidas.png" id="14_c0xfk"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_h2u01"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6f7ky"]
+size = Vector2(35, 99)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_poghx"]
+size = Vector2(35, 81)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ggbhw"]
+size = Vector2(60, 51)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gpfcj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_poghx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_poghx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_poghx")
+}],
+"loop": false,
+"name": &"Fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ho4aw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2m45u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_c0xfk")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_uapl2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_poghx")
+}],
+"loop": false,
+"name": &"Jump",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_w20qm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_pdlcs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_s2are")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ho4aw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2m45u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_c0xfk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_6f7ky")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_uapl2")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_2m45u")
+}],
+"loop": false,
+"name": &"abrir_paracaidas",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_2m45u")
+}],
+"loop": true,
+"name": &"paracaidas_equipada",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_c0xfk")
+}],
+"loop": true,
+"name": &"quitar_paracaidas",
+"speed": 5.0
+}]
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_wf2ox")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_h2u01")
+position = Vector2(-0.5, 12.5)
+shape = SubResource("RectangleShape2D_6f7ky")
+
+[node name="fall" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 3.5)
+shape = SubResource("RectangleShape2D_poghx")
+
+[node name="sin_paracaidas" type="CollisionShape2D" parent="."]
+position = Vector2(2, 32.5)
+shape = SubResource("RectangleShape2D_ggbhw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gpfcj")
+animation = &"abrir_paracaidas"
+
+[node name="visualNode" type="Node2D" parent="."]
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
