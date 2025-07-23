@@ -1,7 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cb2pnp2wgacg0"]
 
-[ext_resource type="PackedScene" uid="uid://8pc0yxxn8y0w" path="res://escenas/player/player.tscn" id="1_nprsn"]
-[ext_resource type="PackedScene" uid="uid://dpdo4jw8x5c0d" path="res://escenas/enemies/ave_en_picado/Ave_en_picada.tscn" id="3_7lail"]
+
+[ext_resource type="PackedScene" uid="uid://yn5a0qhdejhy" path="res://escenas/player/player.tscn" id="1_nprsn"]
+
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_86dhe"]
 size = Vector2(1174, 20)
@@ -19,25 +20,6 @@ position = Vector2(575, 604)
 shape = SubResource("RectangleShape2D_86dhe")
 
 [node name="player" parent="." instance=ExtResource("1_nprsn")]
-position = Vector2(596, -707)
 
-[node name="Camera2D" type="Camera2D" parent="player"]
-position = Vector2(-32, -95)
-zoom = Vector2(2, 2)
+position = Vector2(504, -2581)
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(1046, 495)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(0, 15.5)
-shape = SubResource("RectangleShape2D_7lail")
-
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
-position = Vector2(3, 496)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
-position = Vector2(0, 15.5)
-shape = SubResource("RectangleShape2D_7lail")
-
-[node name="AveEnPicada" parent="." instance=ExtResource("3_7lail")]
-position = Vector2(481, 285)
