@@ -1,15 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://dpdo4jw8x5c0d"]
+[gd_scene load_steps=7 format=3 uid="uid://dpdo4jw8x5c0d"]
 
 [ext_resource type="Script" uid="uid://bnwg6hvh8oigx" path="res://escenas/enemies/ave_en_picado/ave_en_picada.gd" id="1_i77mi"]
+[ext_resource type="Texture2D" uid="uid://1bgxske2org1" path="res://icon.svg" id="2_0ls0b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8g3gq"]
 radius = 35.1283
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ls0b"]
-size = Vector2(835.775, 91.7717)
+size = Vector2(1443.33, 91.7717)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i77mi"]
-size = Vector2(816.001, 84.8528)
+size = Vector2(1434.25, 84.8528)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i77mi"]
 radius = 35.0
@@ -26,15 +27,15 @@ shape = SubResource("CircleShape2D_8g3gq")
 [node name="Attack_izquierda" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attack_izquierda"]
-position = Vector2(-315, 256)
-rotation = -0.785398
+position = Vector2(-492.239, 598.839)
+rotation = -0.959931
 shape = SubResource("RectangleShape2D_0ls0b")
 
 [node name="Attack_derecha" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attack_derecha"]
-position = Vector2(326, 256)
-rotation = 0.785398
+position = Vector2(500.308, 603.222)
+rotation = 0.959931
 shape = SubResource("RectangleShape2D_i77mi")
 
 [node name="daño" type="Area2D" parent="."]
@@ -43,8 +44,14 @@ shape = SubResource("RectangleShape2D_i77mi")
 shape = SubResource("CapsuleShape2D_i77mi")
 debug_color = Color(0.972549, 0, 0, 0)
 
+[node name="Coldawn_attack" type="Timer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_0ls0b")
+
 [connection signal="body_entered" from="Attack_izquierda" to="." method="_on_attack_izquierda_body_entered"]
 [connection signal="body_exited" from="Attack_izquierda" to="." method="_on_attack_izquierda_body_exited"]
 [connection signal="body_entered" from="Attack_derecha" to="." method="_on_attack_derecha_body_entered"]
 [connection signal="body_exited" from="Attack_derecha" to="." method="_on_attack_derecha_body_exited"]
 [connection signal="body_entered" from="daño" to="." method="_on_daño_body_entered"]
+[connection signal="timeout" from="Coldawn_attack" to="." method="_on_coldawn_attack_timeout"]

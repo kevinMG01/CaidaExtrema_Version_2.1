@@ -12,7 +12,7 @@ size = Vector2(20, 171)
 [node name="nivel_1" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(-2208, 0)
+position = Vector2(0, 12)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(575, 604)
