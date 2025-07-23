@@ -14,6 +14,10 @@ config/name="caidaExtremas_version_2.1"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
 
 [global_group]
 
@@ -22,4 +26,3 @@ player=""
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-

@@ -1,0 +1,58 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwlgdhse6imqb"]
+
+[ext_resource type="Texture2D" uid="uid://3omx68hitkux" path="res://assets/menus/menu_principal/ds.png" id="1_a377p"]
+
+[node name="MenuPrincipal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.182106, 1, 0.999393, 1)
+
+[node name="Botones_centrales" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Botones_centrales"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 90
+
+[node name="Jugar" type="TextureButton" parent="Botones_centrales"]
+custom_minimum_size = Vector2(260, 90)
+layout_mode = 2
+
+[node name="Inventario" type="TextureButton" parent="Botones_centrales"]
+custom_minimum_size = Vector2(560, 90)
+layout_mode = 2
+
+[node name="Opciones" type="TextureButton" parent="Botones_centrales"]
+custom_minimum_size = Vector2(460, 90)
+layout_mode = 2
+
+[node name="Salir" type="TextureButton" parent="Botones_centrales"]
+custom_minimum_size = Vector2(260, 90)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_a377p")
