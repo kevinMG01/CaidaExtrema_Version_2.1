@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var colision_derecha = $Colision_Derecha
 @onready var colision_izquierda = $Colision_Izquierda
-const SPEED = 100.0
+var SPEED : int = 100.0
 var gravity : int = 0
 var direccion : int = 1
 
@@ -31,14 +31,14 @@ func _on_izquierda_body_entered(body):
 	if body.is_in_group("player"):
 		direccion = -1
 
-#func _on_derecha_body_exited(body):
-	#if body.is_in_group("player"):
-		#direccion = -1
-#
-#func _on_izquierda_body_exited(body):
-	#if body.is_in_group("player"):
-		#direccion = 1
-
 func _on_centro_body_entered(body):
 	if body.is_in_group("player"):
-		direccion = 0
+		SPEED = 0
+		
+func _on_centro_body_exited(body):
+	SPEED = 100
+
+func _on_daño_body_entered(body):
+	if body.is_in_group("player"):
+		body.queue_free()
+	pass # Replace with function body.
