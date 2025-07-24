@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ex6riwp4ua5i"]
+[gd_scene load_steps=3 format=3 uid="uid://ex6riwp4ua5i"]
 
 [ext_resource type="Texture2D" uid="uid://cbrv6t6ldtup1" path="res://assets/menus/menu_de_niveles/d.jpg" id="1_2geil"]
+[ext_resource type="Texture2D" uid="uid://cddlqs3hd6b53" path="res://assets/enemies/globo/Globo_enemigo_sprite_1.png" id="2_5d0gk"]
 
 [node name="MenuDeZonas" type="Control"]
 layout_mode = 3
@@ -10,7 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Fondo" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,3 +19,59 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_2geil")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="Zona_1" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 2
+texture_normal = ExtResource("2_5d0gk")
+stretch_mode = 0
+
+[node name="Zona_2" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+modulate = Color(1, 0, 0, 1)
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+texture_normal = ExtResource("2_5d0gk")
+stretch_mode = 0
+
+[node name="Zona_3" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+modulate = Color(1, 0, 0, 1)
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+texture_normal = ExtResource("2_5d0gk")
+stretch_mode = 0
+
+[node name="Zona_4" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+modulate = Color(1, 0, 0, 1)
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+texture_normal = ExtResource("2_5d0gk")
+stretch_mode = 0
+
+[node name="Zona_5" type="TextureButton" parent="VBoxContainer"]
+modulate = Color(1, 0, 0, 1)
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+texture_normal = ExtResource("2_5d0gk")
+stretch_mode = 0
