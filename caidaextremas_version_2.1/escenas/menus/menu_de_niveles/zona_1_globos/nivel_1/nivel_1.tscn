@@ -87,3 +87,10 @@ position = Vector2(1207, 3021)
 
 [node name="Globo3" parent="Enemigos" instance=ExtResource("3_288qa")]
 position = Vector2(74, 4479)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+limit_right = 1275
+limit_bottom = 6500
+editor_draw_limits = true

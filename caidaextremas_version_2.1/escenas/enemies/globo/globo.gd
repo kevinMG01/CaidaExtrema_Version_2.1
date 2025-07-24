@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var colision_derecha = $Colision_Derecha
 @onready var colision_izquierda = $Colision_Izquierda
-var SPEED : int = 300
+var SPEED : int = 200
 var direccion : int = 1
 
 func _ready():
@@ -35,7 +35,7 @@ func _on_centro_body_entered(body):
 		SPEED = 0
 
 func _on_centro_body_exited(body):
-	SPEED = 300
+	SPEED = 200
 
 func _on_daño_body_entered(body):
 	if body.is_in_group("player"):
