@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dom25syo7ar7h"]
+[gd_scene load_steps=7 format=3 uid="uid://dom25syo7ar7h"]
 
+[ext_resource type="Script" uid="uid://b2hwhfteg8sxn" path="res://escenas/menus/inventario/inventario.gd" id="1_pl1p1"]
 [ext_resource type="Texture2D" uid="uid://hvna3saatyhf" path="res://assets/menus/inventario/k.jpg" id="1_trr87"]
 [ext_resource type="Texture2D" uid="uid://cddlqs3hd6b53" path="res://assets/enemies/globo/Globo_enemigo_sprite_1.png" id="2_2kg2n"]
 [ext_resource type="Texture2D" uid="uid://o2o5qgbp21lb" path="res://assets/menus/menu_principal/Botones/Boton_guardado.png" id="3_6e7er"]
 [ext_resource type="Texture2D" uid="uid://plf6micqddib" path="res://assets/menus/menu_principal/Botones/Boton_salir.png" id="4_pl1p1"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_xqgxn"]
 
 [node name="Inventario" type="Control"]
 layout_mode = 3
@@ -12,6 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_pl1p1")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -72,11 +76,13 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 10
 select_mode = 1
-item_count = 2
+item_count = 3
+max_columns = 3
 item_0/text = "Paralizador"
 item_0/icon = ExtResource("2_2kg2n")
 item_1/text = "Congelador"
 item_1/icon = ExtResource("2_2kg2n")
+item_2/icon = SubResource("ViewportTexture_xqgxn")
 
 [node name="Caja" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(300, 300)
