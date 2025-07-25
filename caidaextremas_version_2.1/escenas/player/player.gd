@@ -180,11 +180,11 @@ func crear_timer(tiempo: float, callback: Callable):
 
 func atributos_Base(key :String= "") -> Variant:
 	var base: Dictionary = {
-		"speed": 500.0,
+		"speed": 300.0,
 		"jump": -400.0,
 		"paracaidas_activado": true,## se ejecuta cuando esta en el estado_aire y determina si tiene el paracaidas o se la quito
 		
-		"estado_aire_MAX_VEL_CAIDA": 300,
+		"estado_aire_MAX_VEL_CAIDA": 150,
 		
 	}
 	if key != "":

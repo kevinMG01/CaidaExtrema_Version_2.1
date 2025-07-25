@@ -20,7 +20,7 @@
 [ext_resource type="Script" uid="uid://dm3ci0dl1741a" path="res://escenas/player/camera_2d.gd" id="18_ggbhw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6f7ky"]
-size = Vector2(35, 99)
+size = Vector2(35, 119)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_poghx"]
 size = Vector2(35, 81)
@@ -127,7 +127,7 @@ animations = [{
 script = ExtResource("1_wf2ox")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 12.5)
+position = Vector2(-0.5, 2.5)
 shape = SubResource("RectangleShape2D_6f7ky")
 
 [node name="fall" type="CollisionShape2D" parent="."]
