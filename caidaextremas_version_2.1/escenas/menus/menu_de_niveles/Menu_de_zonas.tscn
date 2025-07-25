@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://ex6riwp4ua5i"]
+[gd_scene load_steps=5 format=3 uid="uid://ex6riwp4ua5i"]
 
 [ext_resource type="Texture2D" uid="uid://cbrv6t6ldtup1" path="res://assets/menus/menu_de_niveles/d.jpg" id="1_2geil"]
 [ext_resource type="Texture2D" uid="uid://cddlqs3hd6b53" path="res://assets/enemies/globo/Globo_enemigo_sprite_1.png" id="2_5d0gk"]
+[ext_resource type="Texture2D" uid="uid://plf6micqddib" path="res://assets/menus/menu_principal/Botones/Boton_salir.png" id="3_1ii4f"]
+[ext_resource type="Texture2D" uid="uid://bmgxnkxgghsv5" path="res://assets/menus/menu_de_niveles/Boton_nivel_ejemplo.png" id="4_rblec"]
 
 [node name="MenuDeZonas" type="Control"]
 layout_mode = 3
@@ -75,3 +77,442 @@ size_flags_horizontal = 4
 size_flags_vertical = 2
 texture_normal = ExtResource("2_5d0gk")
 stretch_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -111.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Volver" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_1ii4f")
+
+[node name="Zona_1" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fondo_Zona_1" type="TextureRect" parent="Zona_1"]
+modulate = Color(0.391819, 0.391819, 0.391819, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -425.0
+offset_top = -325.0
+offset_right = 425.0
+offset_bottom = 325.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+texture = ExtResource("2_5d0gk")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Zona_1"]
+custom_minimum_size = Vector2(250, 350)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -175.0
+offset_right = 125.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Zona_1/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Nivel_2" type="TextureButton" parent="Zona_1/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = ExtResource("4_rblec")
+
+[node name="MarginContainer" type="MarginContainer" parent="Zona_1/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 80
+
+[node name="Nivel_3" type="TextureButton" parent="Zona_1/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = ExtResource("4_rblec")
+
+[node name="MarginContainer" type="MarginContainer" parent="Zona_1/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 40
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Zona_1/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Nivel_4" type="TextureButton" parent="Zona_1/VBoxContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = ExtResource("4_rblec")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Zona_1/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_right = 80
+
+[node name="Nivel_5" type="TextureButton" parent="Zona_1/VBoxContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = ExtResource("4_rblec")
+
+[node name="Nivel_1" type="TextureButton" parent="Zona_1/VBoxContainer2"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("4_rblec")
+
+[node name="Zona_2" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fondo_Zona_2" type="TextureRect" parent="Zona_2"]
+modulate = Color(0.690101, 0.144935, 0.303235, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -425.0
+offset_top = -325.0
+offset_right = 425.0
+offset_bottom = 325.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+texture = ExtResource("2_5d0gk")
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Zona_2"]
+custom_minimum_size = Vector2(250, 350)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -175.0
+offset_right = 125.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Zona_2/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Nivel_2" type="TextureButton" parent="Zona_2/VBoxContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = ExtResource("4_rblec")
+
+[node name="MarginContainer" type="MarginContainer" parent="Zona_2/VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 80
+
+[node name="Nivel_3" type="TextureButton" parent="Zona_2/VBoxContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = ExtResource("4_rblec")
+
+[node name="MarginContainer" type="MarginContainer" parent="Zona_2/VBoxContainer3"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 40
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Zona_2/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Nivel_4" type="TextureButton" parent="Zona_2/VBoxContainer3/HBoxContainer2"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = ExtResource("4_rblec")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Zona_2/VBoxContainer3/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_right = 80
+
+[node name="Nivel_5" type="TextureButton" parent="Zona_2/VBoxContainer3/HBoxContainer2"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = ExtResource("4_rblec")
+
+[node name="Nivel_1" type="TextureButton" parent="Zona_2/VBoxContainer3"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("4_rblec")
+
+[node name="Zona_3" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fondo_Zona_3" type="TextureRect" parent="Zona_3"]
+modulate = Color(0.197491, 0.420725, 0.197005, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -425.0
+offset_top = -325.0
+offset_right = 425.0
+offset_bottom = 325.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+texture = ExtResource("2_5d0gk")
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="Zona_3"]
+custom_minimum_size = Vector2(250, 350)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -175.0
+offset_right = 125.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Zona_3/VBoxContainer4"]
+layout_mode = 2
+
+[node name="Nivel_2" type="TextureButton" parent="Zona_3/VBoxContainer4/HBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = ExtResource("4_rblec")
+
+[node name="MarginContainer" type="MarginContainer" parent="Zona_3/VBoxContainer4/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 80
+
+[node name="Nivel_3" type="TextureButton" parent="Zona_3/VBoxContainer4/HBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = ExtResource("4_rblec")
+
+[node name="MarginContainer" type="MarginContainer" parent="Zona_3/VBoxContainer4"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 40
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Zona_3/VBoxContainer4"]
+layout_mode = 2
+
+[node name="Nivel_4" type="TextureButton" parent="Zona_3/VBoxContainer4/HBoxContainer2"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = ExtResource("4_rblec")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Zona_3/VBoxContainer4/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_right = 80
+
+[node name="Nivel_5" type="TextureButton" parent="Zona_3/VBoxContainer4/HBoxContainer2"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = ExtResource("4_rblec")
+
+[node name="Nivel_1" type="TextureButton" parent="Zona_3/VBoxContainer4"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("4_rblec")
+
+[node name="Zona_4" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fondo_Zona_4" type="TextureRect" parent="Zona_4"]
+modulate = Color(0.0111077, 0.443028, 0.499513, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -425.0
+offset_top = -325.0
+offset_right = 425.0
+offset_bottom = 325.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+texture = ExtResource("2_5d0gk")
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="Zona_4"]
+custom_minimum_size = Vector2(250, 350)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -175.0
+offset_right = 125.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Zona_4/VBoxContainer5"]
+layout_mode = 2
+
+[node name="Nivel_2" type="TextureButton" parent="Zona_4/VBoxContainer5/HBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = ExtResource("4_rblec")
+
+[node name="MarginContainer" type="MarginContainer" parent="Zona_4/VBoxContainer5/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 80
+
+[node name="Nivel_3" type="TextureButton" parent="Zona_4/VBoxContainer5/HBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = ExtResource("4_rblec")
+
+[node name="MarginContainer" type="MarginContainer" parent="Zona_4/VBoxContainer5"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 40
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Zona_4/VBoxContainer5"]
+layout_mode = 2
+
+[node name="Nivel_4" type="TextureButton" parent="Zona_4/VBoxContainer5/HBoxContainer2"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = ExtResource("4_rblec")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Zona_4/VBoxContainer5/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_right = 80
+
+[node name="Nivel_5" type="TextureButton" parent="Zona_4/VBoxContainer5/HBoxContainer2"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = ExtResource("4_rblec")
+
+[node name="Nivel_1" type="TextureButton" parent="Zona_4/VBoxContainer5"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("4_rblec")
+
+[node name="Zona_5" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fondo_Zona_5" type="TextureRect" parent="Zona_5"]
+modulate = Color(0.257952, 0.283577, 0.885741, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -425.0
+offset_top = -325.0
+offset_right = 425.0
+offset_bottom = 325.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+texture = ExtResource("2_5d0gk")
+
+[node name="VBoxContainer6" type="VBoxContainer" parent="Zona_5"]
+custom_minimum_size = Vector2(250, 350)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -175.0
+offset_right = 125.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Zona_5/VBoxContainer6"]
+layout_mode = 2
+
+[node name="Nivel_2" type="TextureButton" parent="Zona_5/VBoxContainer6/HBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = ExtResource("4_rblec")
+
+[node name="MarginContainer" type="MarginContainer" parent="Zona_5/VBoxContainer6/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 80
+
+[node name="Nivel_3" type="TextureButton" parent="Zona_5/VBoxContainer6/HBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = ExtResource("4_rblec")
+
+[node name="MarginContainer" type="MarginContainer" parent="Zona_5/VBoxContainer6"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 40
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Zona_5/VBoxContainer6"]
+layout_mode = 2
+
+[node name="Nivel_4" type="TextureButton" parent="Zona_5/VBoxContainer6/HBoxContainer2"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = ExtResource("4_rblec")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Zona_5/VBoxContainer6/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_right = 80
+
+[node name="Nivel_5" type="TextureButton" parent="Zona_5/VBoxContainer6/HBoxContainer2"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = ExtResource("4_rblec")
+
+[node name="Nivel_1" type="TextureButton" parent="Zona_5/VBoxContainer6"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("4_rblec")
