@@ -23,8 +23,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lgqff"]
-radius = 17.0
-height = 36.0
+radius = 14.5
+height = 40.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eak8y"]
 size = Vector2(1234, 244)
@@ -48,15 +48,15 @@ sprite_frames = SubResource("SpriteFrames_kn3vy")
 animation = &"move"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -9)
+position = Vector2(0, -7.5)
 shape = SubResource("CapsuleShape2D_lgqff")
-debug_color = Color(0.984314, 0, 0, 0)
+debug_color = Color(0, 0.603922, 0.596078, 1)
 
 [node name="Colision_Derecha" type="RayCast2D" parent="."]
-target_position = Vector2(24, 0)
+target_position = Vector2(15.5, 0)
 
 [node name="Colision_Izquierda" type="RayCast2D" parent="."]
-target_position = Vector2(-24, 0)
+target_position = Vector2(-15.5, 0)
 
 [node name="Attack" type="Node2D" parent="."]
 
