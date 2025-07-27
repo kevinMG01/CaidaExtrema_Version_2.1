@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://csbhxl4ri6c14"]
+
+[ext_resource type="Script" uid="uid://cu2jxyq0oidvq" path="res://escenas/menus/inventario/en_inspeccion_Items/inventory_item_ui.gd" id="1_q2byx"]
+[ext_resource type="Texture2D" uid="uid://1bgxske2org1" path="res://icon.svg" id="1_q3jpq"]
+
+[node name="inventory_item_ui" type="Panel"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_q2byx")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("1_q3jpq")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 131.0
+offset_right = 94.0
+offset_bottom = 154.0

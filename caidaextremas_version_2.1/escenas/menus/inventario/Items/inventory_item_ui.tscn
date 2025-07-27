@@ -1,22 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://csbhxl4ri6c14"]
+[gd_scene load_steps=2 format=3 uid="uid://d4bpd2rvel7ja"]
 
-[ext_resource type="Script" uid="uid://cu2jxyq0oidvq" path="res://escenas/menus/inventario/Items/inventory_item_ui.gd" id="1_q2byx"]
-[ext_resource type="Texture2D" uid="uid://1bgxske2org1" path="res://icon.svg" id="1_q3jpq"]
+[ext_resource type="Script" uid="uid://chxwd2kqbfirt" path="res://escenas/menus/inventario/inventory_item_ui.gd" id="1_6gplh"]
 
-[node name="inventory_item_ui" type="Panel"]
+[node name="inventory_item_ui" type="TextureRect"]
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_q2byx")
-
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("1_q3jpq")
+script = ExtResource("1_6gplh")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 37.0
-offset_top = 131.0
-offset_right = 94.0
-offset_bottom = 154.0
+offset_right = 40.0
+offset_bottom = 23.0
