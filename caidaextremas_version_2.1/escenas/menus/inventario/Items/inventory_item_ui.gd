@@ -1,9 +1,9 @@
 extends TextureRect
 
-var item : String = ""
+
 var inventario: Control
-
-
+var item: String = ""
+var cantidad: int = 0
 
 func initialize(texture_rec, valor):
 	texture = texture_rec
@@ -12,6 +12,6 @@ func initialize(texture_rec, valor):
 func set_quantity(valor):
 	$Label.text = str(valor)
 
-
 func _on_button_button_down() -> void:
 	inventario.usar_habilidad(item)
+	GlobalVar.ITEM_ELEGIDO = item

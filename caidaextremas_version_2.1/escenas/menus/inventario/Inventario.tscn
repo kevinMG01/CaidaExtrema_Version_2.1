@@ -84,7 +84,7 @@ stretch_mode = 0
 layout_mode = 2
 theme_override_constants/margin_left = 150
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="Retroceder" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -95,3 +95,4 @@ grow_vertical = 0
 texture_normal = ExtResource("4_pl1p1")
 
 [connection signal="button_down" from="VBoxContainer/HBoxContainer/Caja" to="." method="_on_caja_button_down"]
+[connection signal="button_down" from="Retroceder" to="." method="_on_retroceder_button_down"]
