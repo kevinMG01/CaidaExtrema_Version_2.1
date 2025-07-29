@@ -1,6 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://d4bpd2rvel7ja"]
+[gd_scene load_steps=13 format=3 uid="uid://d4bpd2rvel7ja"]
 
-[ext_resource type="Script" uid="uid://chxwd2kqbfirt" path="res://escenas/menus/inventario/inventory_item_ui.gd" id="1_6gplh"]
+[ext_resource type="Script" uid="uid://chxwd2kqbfirt" path="res://escenas/menus/inventario/Items/inventory_item_ui.gd" id="1_6gplh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q3jpq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q2byx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xw3a7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_thnn7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_811kv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ao2fh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_my6ex"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sx5q5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0djwl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4wu0t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hptbi"]
 
 [node name="inventory_item_ui" type="TextureRect"]
 offset_right = 40.0
@@ -11,3 +33,21 @@ script = ExtResource("1_6gplh")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 67.0
+offset_bottom = 65.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_q3jpq")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_q2byx")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_xw3a7")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_thnn7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_811kv")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ao2fh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_my6ex")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_sx5q5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0djwl")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_4wu0t")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hptbi")
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
