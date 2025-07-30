@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://ex6riwp4ua5i"]
+[gd_scene load_steps=6 format=3 uid="uid://ex6riwp4ua5i"]
 
 [ext_resource type="Texture2D" uid="uid://cbrv6t6ldtup1" path="res://assets/menus/menu_de_niveles/d.jpg" id="1_2geil"]
+[ext_resource type="Script" uid="uid://bp78uwht4bgc4" path="res://escenas/menus/menu_de_niveles/menu_de_zonas.gd" id="1_rblec"]
 [ext_resource type="Texture2D" uid="uid://cddlqs3hd6b53" path="res://assets/enemies/globo/Globo_enemigo_sprite_1.png" id="2_5d0gk"]
 [ext_resource type="Texture2D" uid="uid://plf6micqddib" path="res://assets/menus/menu_principal/Botones/Boton_salir.png" id="3_1ii4f"]
 [ext_resource type="Texture2D" uid="uid://bmgxnkxgghsv5" path="res://assets/menus/menu_de_niveles/Boton_nivel_ejemplo.png" id="4_rblec"]
@@ -12,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_rblec")
 
 [node name="Fondo" type="TextureRect" parent="."]
 layout_mode = 1
@@ -98,6 +100,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 428.0
+offset_top = 95.0
+offset_right = -428.0
+offset_bottom = -205.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -109,10 +115,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -425.0
-offset_top = -325.0
-offset_right = 425.0
-offset_bottom = 325.0
+offset_left = -427.0
+offset_top = -270.0
+offset_right = 423.0
+offset_bottom = 380.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 4
@@ -126,10 +132,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -175.0
-offset_right = 125.0
-offset_bottom = 175.0
+offset_left = -127.0
+offset_top = -149.0
+offset_right = 123.0
+offset_bottom = 201.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -183,6 +189,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 409.0
+offset_top = 81.0
+offset_right = -447.0
+offset_bottom = -219.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -194,10 +204,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -425.0
-offset_top = -325.0
-offset_right = 425.0
-offset_bottom = 325.0
+offset_left = -408.0
+offset_top = -256.0
+offset_right = 442.0
+offset_bottom = 394.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 4
@@ -211,10 +221,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -175.0
-offset_right = 125.0
-offset_bottom = 175.0
+offset_left = -108.0
+offset_top = -106.0
+offset_right = 142.0
+offset_bottom = 244.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -268,6 +278,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 419.0
+offset_top = 98.0
+offset_right = -437.0
+offset_bottom = -202.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -279,10 +293,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -425.0
-offset_top = -325.0
-offset_right = 425.0
-offset_bottom = 325.0
+offset_left = -418.0
+offset_top = -272.0
+offset_right = 432.0
+offset_bottom = 378.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 4
@@ -296,10 +310,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -175.0
-offset_right = 125.0
-offset_bottom = 175.0
+offset_left = -118.0
+offset_top = -122.0
+offset_right = 132.0
+offset_bottom = 228.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -353,6 +367,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 416.0
+offset_top = 93.0
+offset_right = -440.0
+offset_bottom = -207.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -364,10 +382,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -425.0
-offset_top = -325.0
-offset_right = 425.0
-offset_bottom = 325.0
+offset_left = -415.0
+offset_top = -268.0
+offset_right = 435.0
+offset_bottom = 382.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 4
@@ -381,10 +399,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -175.0
-offset_right = 125.0
-offset_bottom = 175.0
+offset_left = -115.0
+offset_top = -118.0
+offset_right = 135.0
+offset_bottom = 232.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -438,6 +456,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 424.0
+offset_top = 81.0
+offset_right = -432.0
+offset_bottom = -219.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -449,10 +471,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -425.0
-offset_top = -325.0
-offset_right = 425.0
-offset_bottom = 325.0
+offset_left = -423.0
+offset_top = -257.0
+offset_right = 427.0
+offset_bottom = 393.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 4
@@ -466,10 +488,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -175.0
-offset_right = 125.0
-offset_bottom = 175.0
+offset_left = -123.0
+offset_top = -107.0
+offset_right = 127.0
+offset_bottom = 243.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -516,3 +538,9 @@ custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("4_rblec")
+
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/Zona_1" to="." method="_on_zona_1_button_down"]
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/Zona_2" to="." method="_on_zona_2_button_down"]
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/Zona_3" to="." method="_on_zona_3_button_down"]
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/Zona_4" to="." method="_on_zona_4_button_down"]
+[connection signal="button_down" from="VBoxContainer/Zona_5" to="." method="_on_zona_5_button_down"]
