@@ -14,15 +14,26 @@ var texturas = [
 func _ready():
 	randomize()
 	cargar_inventario()
+	print(GlobalVar.inventario_guardado)
+	print()
 
-func add_item(type, texture: CompressedTexture2D, quantity: int):
+func add_item(type, texture: CompressedTexture2D, quantity: int, sobrescribir := false):
 	var node_name = "inventory_item" + str(type)
-	var inventory_item = INVENTORY_ITEM_UI.instantiate()
-	inventory_item.item = type
-	inventory_item.inventario = self
-	inventory_item.name = node_name
-	inventory_item.initialize(texture, quantity)
-	grid_container.add_child(inventory_item) 
+
+	if not grid_container.has_node(node_name):
+		var inventory_item = INVENTORY_ITEM_UI.instantiate()
+		inventory_item.item = type
+		inventory_item.inventario = self
+		inventory_item.name = node_name
+		inventory_item.initialize(texture, quantity)
+		grid_container.add_child(inventory_item)
+	else:
+		var existing_node = grid_container.get_node(node_name)
+		if sobrescribir:
+			existing_node.set_quantity(quantity)
+		else:
+			var nueva_cantidad = existing_node.cantidad + quantity
+			existing_node.set_quantity(nueva_cantidad)
 
 var probabilidades = {
 	"cajaVacia": 20,
@@ -60,7 +71,7 @@ func _on_caja_button_down() -> void:
 	var resultado = abrirCaja()
 	match resultado:
 		"congelar":
-			add_item(resultado, texturas[0], 12)
+			add_item(resultado, texturas[0], 1)
 		"intangible":
 			add_item(resultado, texturas[1], 1)
 		"cajaVacia":
@@ -81,12 +92,17 @@ func guardar_inventario():
 
 # CARGAR INVENTARIO (cuando entra a la escena)
 func cargar_inventario():
+
+	for child in grid_container.get_children():
+		child.queue_free()
+	# CARGA desde la variable global
 	for data in GlobalVar.inventario_guardado:
 		var tex = load(data["texture_path"]) as CompressedTexture2D
-		add_item(data["type"], tex, data["quantity"])
+		add_item(data["type"], tex, data["quantity"],true)
 
 
 
 func _on_retroceder_button_down() -> void:
 	guardar_inventario()
+	print(GlobalVar.inventario_guardado)
 	get_tree().change_scene_to_file("res://escenas/menus/menu_principal/menu_principal.tscn")

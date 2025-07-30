@@ -33,6 +33,9 @@ script = ExtResource("1_6gplh")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.0196078, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+text = "1"
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
