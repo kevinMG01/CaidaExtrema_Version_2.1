@@ -3,8 +3,8 @@ extends Control
 
 
 const INVENTORY_ITEM_UI = preload("res://escenas/menus/inventario/Items/inventory_item_ui.tscn")
-@onready var item_seleccionado: GridContainer = $HBoxContainer/VBoxContainer/Item_seleccionado
-@onready var grid_container: GridContainer = $VBoxContainer/HBoxContainer/GridContainer
+@onready var item_seleccionado: GridContainer = %Item_seleccionado
+@onready var grid_container: GridContainer = %GridContainer
 
 var texturas = [
 	preload("res://icon.svg"),
