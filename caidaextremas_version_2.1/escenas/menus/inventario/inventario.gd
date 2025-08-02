@@ -7,8 +7,10 @@ const INVENTORY_ITEM_UI = preload("res://escenas/menus/inventario/Items/inventor
 @onready var grid_container: GridContainer = %GridContainer
 
 var texturas = [
-	preload("res://icon.svg"),
-	preload("res://assets/sprites/player/AIRE/paracaida_equipada/conparacaidasIdel.png")
+	preload("res://assets/menus/inventario/Icono_habilidades/Icono de habilidad_congelar.png"),#CONLELAR
+	preload("res://assets/menus/inventario/Icono_habilidades/Icono de habilidad_intangibilidad.png"),#INTANGIBLE
+	preload("res://assets/menus/inventario/Icono_habilidades/Icono de habilidad_invisible.png"),#invisible
+	preload("res://assets/menus/inventario/Icono_habilidades/Icono de habilidad_relentizar.png")# relentizar
 ]
 
 func _ready():
@@ -36,9 +38,11 @@ func add_item(type, texture: CompressedTexture2D, quantity: int, sobrescribir :=
 			existing_node.set_quantity(nueva_cantidad)
 
 var probabilidades = {
-	"cajaVacia": 20,
-	"intangible": 40,
-	"congelar": 40
+	"cajaVacia": 10,
+	"intangible": 25,
+	"congelar": 25,
+	"invisible": 15,
+	"relentizar": 25
 }
 
 func abrirCaja():
@@ -60,6 +64,10 @@ func usar_habilidad(item):
 			inventory_item.initialize(texturas[0], 1)
 		"intangible":
 			inventory_item.initialize(texturas[1], 1)
+		"invisible":
+			inventory_item.initialize(texturas[2], 1)
+		"relentizar":
+			inventory_item.initialize(texturas[3], 1)
 		_:
 			return
 	item_seleccionado.add_child(inventory_item)
@@ -74,6 +82,10 @@ func _on_caja_button_down() -> void:
 			add_item(resultado, texturas[0], 1)
 		"intangible":
 			add_item(resultado, texturas[1], 1)
+		"invisible":
+			add_item(resultado, texturas[2], 1)
+		"relentizar":
+			add_item(resultado, texturas[3], 1)
 		"cajaVacia":
 			print("¡Caja vacía!")
 	GlobalVar.CAJAS_RECOLECTADAS -= 1

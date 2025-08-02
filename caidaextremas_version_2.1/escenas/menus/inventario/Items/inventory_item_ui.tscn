@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d4bpd2rvel7ja"]
+[gd_scene load_steps=12 format=3 uid="uid://d4bpd2rvel7ja"]
 
 [ext_resource type="Script" uid="uid://chxwd2kqbfirt" path="res://escenas/menus/inventario/Items/inventory_item_ui.gd" id="1_6gplh"]
 
@@ -17,6 +17,19 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_my6ex"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sx5q5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q3jpq"]
+bg_color = Color(0.666667, 0.552941, 0.2, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 4
+border_color = Color(0.712761, 0.562617, 0.307311, 1)
+border_blend = true
+corner_radius_top_left = 35
+corner_radius_top_right = 35
+corner_radius_bottom_right = 35
+corner_radius_bottom_left = 35
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0djwl"]
 
@@ -37,10 +50,10 @@ text = "1"
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 3.0
-offset_top = 5.0
-offset_right = 52.0
-offset_bottom = 53.0
+offset_left = 6.0
+offset_top = 7.0
+offset_right = 58.0
+offset_bottom = 58.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_q3jpq")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_q2byx")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_xw3a7")
@@ -49,6 +62,7 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_811kv")
 theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ao2fh")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_my6ex")
 theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_sx5q5")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_0djwl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_q3jpq")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0djwl")
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
