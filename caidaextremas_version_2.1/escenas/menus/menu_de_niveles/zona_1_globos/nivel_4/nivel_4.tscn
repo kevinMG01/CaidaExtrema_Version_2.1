@@ -133,7 +133,7 @@ position = Vector2(1345, 5435)
 shape = SubResource("RectangleShape2D_q06d2")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Limites"]
-position = Vector2(643.25, 10873.5)
+position = Vector2(643, 10780)
 shape = SubResource("RectangleShape2D_rd74e")
 
 [connection signal="body_entered" from="Meta" to="." method="_on_meta_body_entered"]

@@ -100,10 +100,10 @@ position = Vector2(730, 0)
 position = Vector2(494, 844)
 
 [node name="Globo2" parent="Enemigos" instance=ExtResource("3_be1dd")]
-position = Vector2(1033, 2273)
+position = Vector2(1070, 1881)
 
 [node name="Globo3" parent="Enemigos" instance=ExtResource("3_be1dd")]
-position = Vector2(574, 3447)
+position = Vector2(191, 4174)
 
 [node name="Globo4" parent="Enemigos" instance=ExtResource("3_be1dd")]
 position = Vector2(1138, 4915)
@@ -127,7 +127,7 @@ position = Vector2(1345, 5435)
 shape = SubResource("RectangleShape2D_kcepg")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Limites"]
-position = Vector2(643, 6446)
+position = Vector2(643, 6303)
 shape = SubResource("RectangleShape2D_u2il0")
 
 [connection signal="body_entered" from="Meta" to="." method="_on_meta_body_entered"]

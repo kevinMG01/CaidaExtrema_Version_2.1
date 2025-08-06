@@ -27,10 +27,10 @@ radius = 14.5
 height = 40.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eak8y"]
-size = Vector2(1234, 244)
+size = Vector2(1234, 405.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6bvti"]
-size = Vector2(1238.5, 243)
+size = Vector2(1238.5, 406)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kn3vy"]
 size = Vector2(20, 244)
@@ -63,14 +63,14 @@ target_position = Vector2(-15.5, 0)
 [node name="Derecha" type="Area2D" parent="Attack"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attack/Derecha"]
-position = Vector2(634, -73)
+position = Vector2(634, -153.75)
 shape = SubResource("RectangleShape2D_eak8y")
 debug_color = Color(0.827451, 0.396078, 0, 0)
 
 [node name="Izquierda" type="Area2D" parent="Attack"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attack/Izquierda"]
-position = Vector2(-637.25, -73.5)
+position = Vector2(-637.25, -155)
 shape = SubResource("RectangleShape2D_6bvti")
 debug_color = Color(0.827451, 0.396078, 0, 0)
 

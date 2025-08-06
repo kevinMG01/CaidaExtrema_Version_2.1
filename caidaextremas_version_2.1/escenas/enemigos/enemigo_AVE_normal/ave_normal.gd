@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 
-const SPEED_X = 600.0
-const SPEED_Y = 300.0
+const SPEED_X = 150.0
+const SPEED_Y = 150.0
 
 var jugador = null
 var UMBRAL_X = 15.0
@@ -10,6 +10,9 @@ var UMBRAL_SEGUIMIENTO_Y = 5.0
 
 var modo_persecucion_total = false
 
+func _ready():
+	$AnimatedSprite2D.play("run")
+	
 func _physics_process(delta: float) -> void:
 	if jugador == null:
 		return
