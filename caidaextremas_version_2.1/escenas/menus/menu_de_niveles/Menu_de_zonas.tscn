@@ -1,0 +1,595 @@
+[gd_scene load_steps=26 format=3 uid="uid://ex6riwp4ua5i"]
+
+[ext_resource type="Script" uid="uid://bp78uwht4bgc4" path="res://escenas/menus/menu_de_niveles/menu_de_zonas.gd" id="1_rblec"]
+[ext_resource type="Texture2D" uid="uid://cddlqs3hd6b53" path="res://assets/enemies/globo/Globo_enemigo_sprite_1.png" id="2_5d0gk"]
+[ext_resource type="Texture2D" uid="uid://bubdyxbk8qr1q" path="res://assets/menus/menu_de_niveles/Fondo del menu de zonas.png" id="2_w1f1c"]
+[ext_resource type="Texture2D" uid="uid://plf6micqddib" path="res://assets/menus/menu_principal/Botones/Boton_salir.png" id="3_1ii4f"]
+[ext_resource type="Texture2D" uid="uid://clq7gwied16ni" path="res://assets/enemies/ave_persecutora/Ave_persecutora sprite 1.png" id="4_57o5e"]
+[ext_resource type="Texture2D" uid="uid://bmgxnkxgghsv5" path="res://assets/menus/menu_de_niveles/Boton_nivel_ejemplo.png" id="4_rblec"]
+[ext_resource type="Script" uid="uid://bv2f1pqrytk3h" path="res://escenas/menus/menu_de_niveles/zona_1.gd" id="5_314rw"]
+[ext_resource type="Texture2D" uid="uid://c3at6umop8hnk" path="res://assets/enemies/ave_picada/Ave_picada sprite 1.png" id="6_nq4ie"]
+[ext_resource type="Texture2D" uid="uid://4px0uihsxoj8" path="res://assets/menus/menu_de_niveles/menu_zona1.png" id="6_yypwe"]
+[ext_resource type="Texture2D" uid="uid://bysnscx2tgcgj" path="res://assets/menus/menu_de_niveles/zona_1_globos/Boton nivel 2.png" id="7_p62h1"]
+[ext_resource type="Texture2D" uid="uid://bloqw33xocfbc" path="res://assets/menus/menu_de_niveles/zona_1_globos/Boton nivel 2_pressed.png" id="8_57o5e"]
+[ext_resource type="Texture2D" uid="uid://bryhb1jj1mvhh" path="res://assets/menus/menu_de_niveles/zona_1_globos/Boton nivel 2_hover.png" id="9_nq4ie"]
+[ext_resource type="Texture2D" uid="uid://1wbalk7nuhmj" path="res://assets/menus/menu_de_niveles/zona_1_globos/Boton nivel bloqueado zona 1.png" id="10_gfwua"]
+[ext_resource type="Texture2D" uid="uid://bd4kfqg3d1yh6" path="res://assets/menus/menu_de_niveles/zona_1_globos/Boton nivel 3.png" id="11_tloew"]
+[ext_resource type="Texture2D" uid="uid://dxltucru6mra4" path="res://assets/menus/menu_de_niveles/zona_1_globos/Boton nivel 3_pressed.png" id="12_p7luw"]
+[ext_resource type="Texture2D" uid="uid://dyx5cyktmbifs" path="res://assets/menus/menu_de_niveles/zona_1_globos/Boton nivel 3_hover.png" id="13_n1mw2"]
+[ext_resource type="Texture2D" uid="uid://bfroy07rnuc1" path="res://assets/menus/menu_de_niveles/zona_1_globos/Boton nivel 1.png" id="14_rrpm7"]
+[ext_resource type="Texture2D" uid="uid://uw7m5c8shmso" path="res://assets/menus/menu_de_niveles/zona_1_globos/Boton nivel 1_pressed.png" id="15_akrws"]
+[ext_resource type="Texture2D" uid="uid://chusd2vctfsi8" path="res://assets/menus/menu_de_niveles/zona_1_globos/Boton nivel 1_hover.png" id="16_a5407"]
+[ext_resource type="Texture2D" uid="uid://bw71r342exahd" path="res://assets/menus/menu_de_niveles/zona_1_globos/Boton nivel 4.png" id="17_8m0bs"]
+[ext_resource type="Texture2D" uid="uid://wlvpfct2srsg" path="res://assets/menus/menu_de_niveles/zona_1_globos/Boton nivel 4_pressed.png" id="18_y00l5"]
+[ext_resource type="Texture2D" uid="uid://bnfkyafk8h5hm" path="res://assets/menus/menu_de_niveles/zona_1_globos/Boton nivel 4_hover.png" id="19_6fkub"]
+[ext_resource type="Texture2D" uid="uid://ctno6r17eic68" path="res://assets/menus/menu_de_niveles/zona_1_globos/Boton nivel 5.png" id="20_lhaaq"]
+[ext_resource type="Texture2D" uid="uid://wa3ydjsjt1sq" path="res://assets/menus/menu_de_niveles/zona_1_globos/Boton nivel 5_pressed.png" id="21_t2rdr"]
+[ext_resource type="Texture2D" uid="uid://chbqxjkhjdgwy" path="res://assets/menus/menu_de_niveles/zona_1_globos/Boton nivel 5_hover.png" id="22_psykc"]
+
+[node name="MenuDeZonas" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rblec")
+
+[node name="Fondo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_w1f1c")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 130
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="Zona_1" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 2
+texture_normal = ExtResource("2_5d0gk")
+stretch_mode = 0
+
+[node name="Zona_2" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+modulate = Color(1, 0, 0, 1)
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+disabled = true
+texture_normal = ExtResource("4_57o5e")
+texture_disabled = ExtResource("10_gfwua")
+stretch_mode = 3
+
+[node name="Zona_3" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+modulate = Color(1, 0, 0, 1)
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+disabled = true
+texture_normal = ExtResource("6_nq4ie")
+texture_disabled = ExtResource("10_gfwua")
+stretch_mode = 3
+
+[node name="Zona_4" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+modulate = Color(1, 0, 0, 1)
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+disabled = true
+texture_normal = ExtResource("2_5d0gk")
+texture_disabled = ExtResource("10_gfwua")
+stretch_mode = 3
+
+[node name="Jefes_de_esta_area" type="TextureButton" parent="VBoxContainer"]
+modulate = Color(1, 0, 0, 1)
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+disabled = true
+texture_normal = ExtResource("2_5d0gk")
+texture_disabled = ExtResource("10_gfwua")
+stretch_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -111.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Volver" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_1ii4f")
+
+[node name="Zona_1" type="Control" parent="."]
+visible = false
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 428.0
+offset_top = 95.0
+offset_right = -428.0
+offset_bottom = -205.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_314rw")
+
+[node name="Fondo_Zona_1" type="TextureRect" parent="Zona_1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -427.0
+offset_top = -270.0
+offset_right = 423.0
+offset_bottom = 380.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+texture = ExtResource("6_yypwe")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Zona_1"]
+custom_minimum_size = Vector2(250, 350)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -146.0
+offset_bottom = 146.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Zona_1/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Nivel_2" type="TextureButton" parent="Zona_1/VBoxContainer2/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("7_p62h1")
+texture_pressed = ExtResource("8_57o5e")
+texture_hover = ExtResource("9_nq4ie")
+texture_disabled = ExtResource("10_gfwua")
+
+[node name="MarginContainer" type="MarginContainer" parent="Zona_1/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 80
+
+[node name="Nivel_3" type="TextureButton" parent="Zona_1/VBoxContainer2/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 10
+disabled = true
+texture_normal = ExtResource("11_tloew")
+texture_pressed = ExtResource("12_p7luw")
+texture_hover = ExtResource("13_n1mw2")
+texture_disabled = ExtResource("10_gfwua")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Zona_1/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 160
+
+[node name="MarginContainer" type="MarginContainer" parent="Zona_1/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 40
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Zona_1/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="Nivel_1" type="TextureButton" parent="Zona_1/VBoxContainer2/HBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 6
+texture_normal = ExtResource("14_rrpm7")
+texture_pressed = ExtResource("15_akrws")
+texture_hover = ExtResource("16_a5407")
+
+[node name="Nivel_4" type="TextureButton" parent="Zona_1/VBoxContainer2/HBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 10
+disabled = true
+texture_normal = ExtResource("17_8m0bs")
+texture_pressed = ExtResource("18_y00l5")
+texture_hover = ExtResource("19_6fkub")
+texture_disabled = ExtResource("10_gfwua")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Zona_1/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_right = 80
+
+[node name="Nivel_5" type="TextureButton" parent="Zona_1/VBoxContainer2/HBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 8
+disabled = true
+texture_normal = ExtResource("20_lhaaq")
+texture_pressed = ExtResource("21_t2rdr")
+texture_hover = ExtResource("22_psykc")
+texture_disabled = ExtResource("10_gfwua")
+
+[node name="MarginContainer3" type="MarginContainer" parent="Zona_1/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_right = 80
+
+[node name="MarginContainer2" type="MarginContainer" parent="Zona_1/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 40
+
+[node name="Zona_2" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 409.0
+offset_top = 81.0
+offset_right = -447.0
+offset_bottom = -219.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fondo_Zona_2" type="TextureRect" parent="Zona_2"]
+modulate = Color(0.690101, 0.144935, 0.303235, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -408.0
+offset_top = -256.0
+offset_right = 442.0
+offset_bottom = 394.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+texture = ExtResource("2_5d0gk")
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Zona_2"]
+custom_minimum_size = Vector2(250, 350)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -108.0
+offset_top = -106.0
+offset_right = 142.0
+offset_bottom = 244.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Zona_2/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Nivel_7" type="TextureButton" parent="Zona_2/VBoxContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = ExtResource("4_rblec")
+
+[node name="MarginContainer" type="MarginContainer" parent="Zona_2/VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 80
+
+[node name="Nivel_8" type="TextureButton" parent="Zona_2/VBoxContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = ExtResource("4_rblec")
+
+[node name="MarginContainer" type="MarginContainer" parent="Zona_2/VBoxContainer3"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 40
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Zona_2/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Nivel_9" type="TextureButton" parent="Zona_2/VBoxContainer3/HBoxContainer2"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = ExtResource("4_rblec")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Zona_2/VBoxContainer3/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_right = 80
+
+[node name="Nivel_10" type="TextureButton" parent="Zona_2/VBoxContainer3/HBoxContainer2"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = ExtResource("4_rblec")
+
+[node name="Nivel_6" type="TextureButton" parent="Zona_2/VBoxContainer3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("4_rblec")
+
+[node name="Zona_3" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 419.0
+offset_top = 98.0
+offset_right = -437.0
+offset_bottom = -202.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fondo_Zona_3" type="TextureRect" parent="Zona_3"]
+modulate = Color(0.197491, 0.420725, 0.197005, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -418.0
+offset_top = -272.0
+offset_right = 432.0
+offset_bottom = 378.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+texture = ExtResource("2_5d0gk")
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="Zona_3"]
+custom_minimum_size = Vector2(250, 350)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.0
+offset_top = -122.0
+offset_right = 132.0
+offset_bottom = 228.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Zona_3/VBoxContainer4"]
+layout_mode = 2
+
+[node name="Nivel_2" type="TextureButton" parent="Zona_3/VBoxContainer4/HBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = ExtResource("4_rblec")
+
+[node name="MarginContainer" type="MarginContainer" parent="Zona_3/VBoxContainer4/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 80
+
+[node name="Nivel_3" type="TextureButton" parent="Zona_3/VBoxContainer4/HBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = ExtResource("4_rblec")
+
+[node name="MarginContainer" type="MarginContainer" parent="Zona_3/VBoxContainer4"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 40
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Zona_3/VBoxContainer4"]
+layout_mode = 2
+
+[node name="Nivel_4" type="TextureButton" parent="Zona_3/VBoxContainer4/HBoxContainer2"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = ExtResource("4_rblec")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Zona_3/VBoxContainer4/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_right = 80
+
+[node name="Nivel_5" type="TextureButton" parent="Zona_3/VBoxContainer4/HBoxContainer2"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = ExtResource("4_rblec")
+
+[node name="Nivel_1" type="TextureButton" parent="Zona_3/VBoxContainer4"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("4_rblec")
+
+[node name="Zona_4" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 416.0
+offset_top = 93.0
+offset_right = -440.0
+offset_bottom = -207.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fondo_Zona_4" type="TextureRect" parent="Zona_4"]
+modulate = Color(0.0111077, 0.443028, 0.499513, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -415.0
+offset_top = -268.0
+offset_right = 435.0
+offset_bottom = 382.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+texture = ExtResource("2_5d0gk")
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="Zona_4"]
+custom_minimum_size = Vector2(250, 350)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -115.0
+offset_top = -118.0
+offset_right = 135.0
+offset_bottom = 232.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Zona_4/VBoxContainer5"]
+layout_mode = 2
+
+[node name="Nivel_2" type="TextureButton" parent="Zona_4/VBoxContainer5/HBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = ExtResource("4_rblec")
+
+[node name="MarginContainer" type="MarginContainer" parent="Zona_4/VBoxContainer5/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 80
+
+[node name="Nivel_3" type="TextureButton" parent="Zona_4/VBoxContainer5/HBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = ExtResource("4_rblec")
+
+[node name="MarginContainer" type="MarginContainer" parent="Zona_4/VBoxContainer5"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 40
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Zona_4/VBoxContainer5"]
+layout_mode = 2
+
+[node name="Nivel_4" type="TextureButton" parent="Zona_4/VBoxContainer5/HBoxContainer2"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = ExtResource("4_rblec")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Zona_4/VBoxContainer5/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_right = 80
+
+[node name="Nivel_5" type="TextureButton" parent="Zona_4/VBoxContainer5/HBoxContainer2"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = ExtResource("4_rblec")
+
+[node name="Nivel_1" type="TextureButton" parent="Zona_4/VBoxContainer5"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("4_rblec")
+
+[node name="Jefes_de_esta_area" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 424.0
+offset_top = 81.0
+offset_right = -432.0
+offset_bottom = -219.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fondo_Zona_5" type="TextureRect" parent="Jefes_de_esta_area"]
+modulate = Color(0.257952, 0.283577, 0.885741, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -423.0
+offset_top = -257.0
+offset_right = 427.0
+offset_bottom = 393.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+texture = ExtResource("2_5d0gk")
+
+[node name="VBoxContainer6" type="VBoxContainer" parent="Jefes_de_esta_area"]
+custom_minimum_size = Vector2(250, 350)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -123.0
+offset_top = -107.0
+offset_right = 127.0
+offset_bottom = 243.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Jefes_de_esta_area/VBoxContainer6"]
+layout_mode = 2
+
+[node name="Nivel_2" type="TextureButton" parent="Jefes_de_esta_area/VBoxContainer6/HBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = ExtResource("4_rblec")
+
+[node name="MarginContainer" type="MarginContainer" parent="Jefes_de_esta_area/VBoxContainer6/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 80
+
+[node name="Nivel_1" type="TextureButton" parent="Jefes_de_esta_area/VBoxContainer6"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("4_rblec")
+
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/Zona_1" to="." method="_on_zona_1_button_down"]
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/Zona_2" to="." method="_on_zona_2_button_down"]
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/Zona_3" to="." method="_on_zona_3_button_down"]
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/Zona_4" to="." method="_on_zona_4_button_down"]
+[connection signal="button_down" from="VBoxContainer/Jefes_de_esta_area" to="." method="_on_zona_5_button_down"]
+[connection signal="pressed" from="Zona_1/VBoxContainer2/HBoxContainer/Nivel_2" to="Zona_1" method="_on_nivel_2_pressed"]
+[connection signal="pressed" from="Zona_1/VBoxContainer2/HBoxContainer/Nivel_3" to="Zona_1" method="_on_nivel_3_pressed"]
+[connection signal="pressed" from="Zona_1/VBoxContainer2/HBoxContainer2/Nivel_1" to="Zona_1" method="_on_nivel_1_pressed"]
+[connection signal="pressed" from="Zona_1/VBoxContainer2/HBoxContainer2/Nivel_4" to="Zona_1" method="_on_nivel_4_pressed"]
+[connection signal="pressed" from="Zona_1/VBoxContainer2/HBoxContainer2/Nivel_5" to="Zona_1" method="_on_nivel_5_pressed"]
