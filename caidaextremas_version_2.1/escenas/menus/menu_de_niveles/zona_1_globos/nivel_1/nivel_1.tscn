@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://biy80dxettm10"]
+[gd_scene load_steps=10 format=4 uid="uid://biy80dxettm10"]
 
 [ext_resource type="Texture2D" uid="uid://xjhgcnaduwe3" path="res://assets/Zonas/Zona_1/Nubes y cielo dia.png" id="1_bx6lr"]
 [ext_resource type="Script" uid="uid://81eaj85wy2d2" path="res://escenas/menus/menu_de_niveles/zona_1_globos/nivel_1/nivel_1.gd" id="1_iu7yy"]
@@ -55,6 +55,12 @@ sources/0 = SubResource("TileSetAtlasSource_288qa")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rfy4n"]
 size = Vector2(699, 30)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iu7yy"]
+size = Vector2(130, 10889)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8pn2u"]
+size = Vector2(1533.5, 59)
+
 [node name="Nivel1" type="Node2D"]
 script = ExtResource("1_iu7yy")
 
@@ -94,13 +100,6 @@ position = Vector2(1207, 3021)
 [node name="Globo3" parent="Enemigos" instance=ExtResource("3_288qa")]
 position = Vector2(74, 4479)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-limit_left = 0
-limit_top = 0
-limit_right = 1275
-limit_bottom = 6500
-editor_draw_limits = true
-
 [node name="Meta" type="Area2D" parent="."]
 position = Vector2(633, 6254)
 
@@ -108,5 +107,19 @@ position = Vector2(633, 6254)
 position = Vector2(-1.5, 3)
 shape = SubResource("RectangleShape2D_rfy4n")
 debug_color = Color(0.546292, 0.56523, 0, 0.42)
+
+[node name="Limites" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limites"]
+position = Vector2(-55, 5434.5)
+shape = SubResource("RectangleShape2D_iu7yy")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Limites"]
+position = Vector2(1345, 5435)
+shape = SubResource("RectangleShape2D_iu7yy")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Limites"]
+position = Vector2(643, 6480)
+shape = SubResource("RectangleShape2D_8pn2u")
 
 [connection signal="body_entered" from="Meta" to="." method="_on_meta_body_entered"]
