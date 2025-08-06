@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dpdo4jw8x5c0d"]
+[gd_scene load_steps=10 format=3 uid="uid://dpdo4jw8x5c0d"]
 
 [ext_resource type="Script" uid="uid://bnwg6hvh8oigx" path="res://escenas/enemies/ave_en_picado/ave_en_picada.gd" id="1_i77mi"]
-[ext_resource type="Texture2D" uid="uid://1bgxske2org1" path="res://icon.svg" id="2_0ls0b"]
+[ext_resource type="Texture2D" uid="uid://bn2rn4cvw0fwq" path="res://assets/enemies/ave_picada/Ave_picada_duo sprite 1.png" id="2_cnv8s"]
+[ext_resource type="Texture2D" uid="uid://dr6b0gbm8nie7" path="res://assets/enemies/ave_picada/Ave_picada_duo sprite 2.png" id="3_075jm"]
+[ext_resource type="Texture2D" uid="uid://nqgnnrie8aky" path="res://assets/enemies/ave_picada/Ave_picada_duo sprite 3.png" id="4_12gaf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8g3gq"]
 radius = 35.1283
@@ -15,6 +17,23 @@ size = Vector2(1434.25, 84.8528)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i77mi"]
 radius = 35.0
 height = 72.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1eeui"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cnv8s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_075jm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_12gaf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="AveEnPicada" type="CharacterBody2D"]
 collision_layer = 2
@@ -46,8 +65,10 @@ debug_color = Color(0.972549, 0, 0, 0)
 
 [node name="Coldawn_attack" type="Timer" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_0ls0b")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_1eeui")
+frame_progress = 0.622992
 
 [connection signal="body_entered" from="Attack_izquierda" to="." method="_on_attack_izquierda_body_entered"]
 [connection signal="body_exited" from="Attack_izquierda" to="." method="_on_attack_izquierda_body_exited"]

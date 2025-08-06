@@ -14,7 +14,6 @@ config/name="caidaExtremas_version_2.1"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
-
 [autoload]
 
 GlobalVar="*res://global_var/global_var.gd"
@@ -23,7 +22,6 @@ GlobalVar="*res://global_var/global_var.gd"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-
 
 [global_group]
 

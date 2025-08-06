@@ -6,6 +6,10 @@ extends CharacterBody2D
 var SPEED : int = 400
 var direccion_actual : String 
 
+func _ready():
+	$AnimatedSprite2D.play("default")
+
+
 func _physics_process(delta):
 	move_and_slide()
 
