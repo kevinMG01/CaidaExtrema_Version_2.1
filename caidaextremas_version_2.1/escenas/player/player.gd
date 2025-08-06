@@ -13,6 +13,9 @@ var  is_super_salto :bool = false
 var atributos: Dictionary = {}
 var atributos_extras: Dictionary = {} # no esta programado, es para el futuro
 
+
+var nivel_camara = 1
+
 func _ready() -> void:
 	for key in atributos_Base().keys():
 		atributos[key] = atributos_Base(key)

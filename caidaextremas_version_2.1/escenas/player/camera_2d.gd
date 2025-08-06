@@ -1,7 +1,7 @@
 extends Camera2D
 
 
-var nivel = 4
+
 
 
 
@@ -11,7 +11,7 @@ func _ready() -> void:
 
 func ejecutar_limite_Camara():
 	# Crea el nombre de clave según el nivel
-	var clave :String = "nivel_%s" % nivel
+	var clave :String = "nivel_%s" % $"..".nivel_camara
 	
 	# Obtiene el array de límites desde el diccionario
 	var tamaño_Actual_Camara = tamaños_limite_Camara(clave) #mejorarlo
