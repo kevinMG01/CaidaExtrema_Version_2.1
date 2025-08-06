@@ -29,11 +29,11 @@ func ejecutar_limite_Camara():
 func tamaños_limite_Camara(limite) -> Array:
 	# left, top, ringht, bottom
 	var dimenciones_Limite_camara: Dictionary = {
-		"nivel_1": [0,0,1250,3500],
-		"nivel_2": [0,0,1250,6300],
-		"nivel_3": [0,0,1250,9670],
-		"nivel_4": [0,0,1250,11350],
-		"nivel_5": [0,0,1250,14000]
+		"nivel_1": [0,0,1290,3500],
+		"nivel_2": [0,0,1300,6300],
+		"nivel_3": [0,0,1300,9670],
+		"nivel_4": [0,0,1300,11350],
+		"nivel_5": [0,0,1400,14000]
 	}
 	return dimenciones_Limite_camara[limite]
 
