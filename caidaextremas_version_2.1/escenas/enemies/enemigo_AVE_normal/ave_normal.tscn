@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://f5ppsi22200"]
 
-[ext_resource type="Script" uid="uid://css5gd5pk688u" path="res://escenas/enemigos/enemigo_AVE_normal/ave_normal.gd" id="1_0kr5r"]
+[ext_resource type="Script" uid="uid://css5gd5pk688u" path="res://escenas/enemies/enemigo_AVE_normal/ave_normal.gd" id="1_0kr5r"]
 [ext_resource type="Texture2D" uid="uid://2nmu5yjvx3a4" path="res://assets/enemies/ave_persecutora/Ave_persecutora_manada sprite 1.png" id="2_veqvp"]
 [ext_resource type="Texture2D" uid="uid://ky3phiyyuyo8" path="res://assets/enemies/ave_persecutora/Ave_persecutora_manada sprite 2.png" id="3_7h14r"]
 [ext_resource type="Texture2D" uid="uid://dkrshtxd8e6ls" path="res://assets/enemies/ave_persecutora/Ave_persecutora_manada sprite 3.png" id="4_ydfn8"]

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bgov65qedym0v" path="res://escenas/menus/menu_de_niveles/zona_2_ave_persecutora/nivel_8.gd" id="1_1rn5i"]
 [ext_resource type="Texture2D" uid="uid://xjhgcnaduwe3" path="res://assets/Zonas/Zona_1/Nubes y cielo dia.png" id="1_vu0qb"]
 [ext_resource type="PackedScene" uid="uid://yn5a0qhdejhy" path="res://escenas/player/player.tscn" id="2_1rn5i"]
-[ext_resource type="PackedScene" uid="uid://f5ppsi22200" path="res://escenas/enemigos/enemigo_AVE_normal/ave_normal.tscn" id="3_lelml"]
+[ext_resource type="PackedScene" uid="uid://f5ppsi22200" path="res://escenas/enemies/enemigo_AVE_normal/ave_normal.tscn" id="3_lelml"]
 [ext_resource type="PackedScene" uid="uid://vh5jwq5a514g" path="res://escenas/enemies/globo/globo.tscn" id="4_c2luv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8x65j"]
