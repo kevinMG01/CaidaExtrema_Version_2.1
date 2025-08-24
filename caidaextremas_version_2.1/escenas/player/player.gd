@@ -50,7 +50,7 @@ func _input(event: InputEvent) -> void:
 			)
 		else:
 			set_state("abrir_paracaidas")
-	if Input.is_action_just_pressed("ui_down"):
+	if Input.is_action_just_pressed("ui_F") or Input.is_action_just_pressed("ui_l"):
 		ejecutar_habilidad(habilidad_activa)
 
 func move(direction): # controlamos el movimineto
