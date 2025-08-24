@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://yn5a0qhdejhy" path="res://escenas/player/player.tscn" id="2_p4vfi"]
 [ext_resource type="PackedScene" uid="uid://vh5jwq5a514g" path="res://escenas/enemies/globo/globo.tscn" id="3_1766j"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8ajn2"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p4vfi"]
 texture = ExtResource("1_8ajn2")
 texture_region_size = Vector2i(32, 32)
 1:0/0 = 0
@@ -50,7 +50,7 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_dons5"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_8ajn2")
+sources/0 = SubResource("TileSetAtlasSource_p4vfi")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1766j"]
 size = Vector2(699, 30)
