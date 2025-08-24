@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://7gqhv2w5du6n"]
+[gd_scene load_steps=10 format=4 uid="uid://7gqhv2w5du6n"]
 
 [ext_resource type="Script" uid="uid://deqi6b2nklh45" path="res://escenas/menus/menu_de_niveles/zona_1_globos/nivel_3/nivel_3.gd" id="1_kcepg"]
 [ext_resource type="Texture2D" uid="uid://xjhgcnaduwe3" path="res://assets/Zonas/Zona_1/Nubes y cielo dia.png" id="1_yoq70"]
@@ -55,6 +55,12 @@ sources/0 = SubResource("TileSetAtlasSource_yoq70")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_be1dd"]
 size = Vector2(699, 30)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kcepg"]
+size = Vector2(130, 10889)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u2il0"]
+size = Vector2(1533.5, 59)
+
 [node name="Nivel3" type="Node2D"]
 script = ExtResource("1_kcepg")
 
@@ -94,10 +100,10 @@ position = Vector2(730, 0)
 position = Vector2(494, 844)
 
 [node name="Globo2" parent="Enemigos" instance=ExtResource("3_be1dd")]
-position = Vector2(1033, 2273)
+position = Vector2(1070, 1881)
 
 [node name="Globo3" parent="Enemigos" instance=ExtResource("3_be1dd")]
-position = Vector2(574, 3447)
+position = Vector2(191, 4174)
 
 [node name="Globo4" parent="Enemigos" instance=ExtResource("3_be1dd")]
 position = Vector2(1138, 4915)
@@ -109,5 +115,19 @@ position = Vector2(633, 6254)
 position = Vector2(-1.5, 3)
 shape = SubResource("RectangleShape2D_be1dd")
 debug_color = Color(0.546292, 0.56523, 0, 0.42)
+
+[node name="Limites" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limites"]
+position = Vector2(-55, 5434.5)
+shape = SubResource("RectangleShape2D_kcepg")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Limites"]
+position = Vector2(1345, 5435)
+shape = SubResource("RectangleShape2D_kcepg")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Limites"]
+position = Vector2(643, 6303)
+shape = SubResource("RectangleShape2D_u2il0")
 
 [connection signal="body_entered" from="Meta" to="." method="_on_meta_body_entered"]

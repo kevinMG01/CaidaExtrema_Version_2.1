@@ -1,12 +1,9 @@
 extends Node2D
 
 
-var nivel_ganado : String = "NO"
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$player.nivel_camara = 2
-	pass # Replace with function body.
+	$player.nivel_camara = 1
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -16,6 +13,6 @@ func _process(delta):
 
 func _on_meta_body_entered(body):
 	if body.is_in_group("player"):
-		if GlobalVar.nivel_desbloqueado == 5:
+		if GlobalVar.nivel_desbloqueado == 15:
 			GlobalVar.nivel_desbloqueado += 1 
 		get_tree().change_scene_to_file("res://escenas/menus/menu_de_niveles/Menu_de_zonas.tscn")
