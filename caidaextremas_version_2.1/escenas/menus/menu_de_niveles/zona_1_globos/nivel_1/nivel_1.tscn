@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=4 uid="uid://dnjp5x0demiar"]
+[gd_scene load_steps=10 format=4 uid="uid://dnjp5x0demiar"]
 
 [ext_resource type="Texture2D" uid="uid://xjhgcnaduwe3" path="res://assets/Zonas/Zona_1/Nubes y cielo dia.png" id="1_bx6lr"]
 [ext_resource type="Script" uid="uid://81eaj85wy2d2" path="res://escenas/menus/menu_de_niveles/zona_1_globos/nivel_1/nivel_1.gd" id="1_iu7yy"]
 [ext_resource type="PackedScene" uid="uid://du5q4kj6nvh12" path="res://escenas/avion/avion.tscn" id="3_288qa"]
+[ext_resource type="PackedScene" uid="uid://vh5jwq5a514g" path="res://escenas/enemies/globo/globo.tscn" id="4_iu7yy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iu7yy"]
 texture = ExtResource("1_bx6lr")
@@ -109,3 +110,14 @@ shape = SubResource("RectangleShape2D_v46s3")
 
 [node name="avion" parent="." instance=ExtResource("3_288qa")]
 position = Vector2(35, 342)
+
+[node name="Globo" parent="." instance=ExtResource("4_iu7yy")]
+position = Vector2(1213, 1723)
+
+[node name="Globo2" parent="." instance=ExtResource("4_iu7yy")]
+position = Vector2(295, 3273)
+
+[node name="Globo3" parent="." instance=ExtResource("4_iu7yy")]
+position = Vector2(1134, 5180)
+
+[connection signal="body_entered" from="Meta" to="." method="_on_meta_body_entered"]

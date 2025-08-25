@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://xjhgcnaduwe3" path="res://assets/Zonas/Zona_1/Nubes y cielo dia.png" id="1_kd7nx"]
 [ext_resource type="Script" uid="uid://c5lce55v21yyr" path="res://escenas/menus/menu_de_niveles/zona_1_globos/nivel_4/nivel_4.gd" id="1_q06d2"]
-[ext_resource type="PackedScene" uid="uid://yn5a0qhdejhy" path="res://escenas/player/player.tscn" id="2_q06d2"]
 [ext_resource type="PackedScene" uid="uid://vh5jwq5a514g" path="res://escenas/enemies/globo/globo.tscn" id="3_aayet"]
+[ext_resource type="PackedScene" uid="uid://du5q4kj6nvh12" path="res://escenas/avion/avion.tscn" id="4_q06d2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kd7nx"]
 texture = ExtResource("1_kd7nx")
@@ -91,9 +91,6 @@ scale = Vector2(7, 7)
 tile_map_data = PackedByteArray("AAABAC4AAAAdAAAAAAAEAC4AAAAfAAAAAAABAC8AAAAcAAAAAAAEAC8AAAAgAAAAAAADAC8AAAAhAAAAAAACAC4AAAAeAAAAAAADAC4AAAAeAAAAAAA=")
 tile_set = SubResource("TileSet_2dgxd")
 
-[node name="player" parent="." instance=ExtResource("2_q06d2")]
-position = Vector2(730, 0)
-
 [node name="Enemigos" type="Node2D" parent="."]
 
 [node name="Globo" parent="Enemigos" instance=ExtResource("3_aayet")]
@@ -135,5 +132,9 @@ shape = SubResource("RectangleShape2D_q06d2")
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Limites"]
 position = Vector2(643, 10780)
 shape = SubResource("RectangleShape2D_rd74e")
+
+[node name="avion" parent="." instance=ExtResource("4_q06d2")]
+position = Vector2(35, 342)
+camara = 2
 
 [connection signal="body_entered" from="Meta" to="." method="_on_meta_body_entered"]

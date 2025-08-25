@@ -5,7 +5,6 @@ var nivel_ganado : String = "NO"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$player.nivel_camara = 2
 	pass # Replace with function body.
 
 
