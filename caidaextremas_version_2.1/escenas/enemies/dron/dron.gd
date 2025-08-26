@@ -8,6 +8,8 @@ var UMBRAL_X = 7.0
 
 var jugador = null
 
+var max_bombas = 10
+
 func _physics_process(delta: float) -> void:
 	if jugador == null:
 		return
@@ -23,7 +25,16 @@ func _on_detectar_jugador_body_entered(body: Node2D) -> void:
 
 
 func spawn_bombas():
-	var new_bomba = bomba_congenar.instantiate()
+	var bombas: Dictionary = {
+		"congelar" : preload("res://escenas/enemies/dron/bombas/congelar/congelar.tscn"),
+		"relentozar" : preload("res://escenas/enemies/dron/bombas/relentizar/relentizar.tscn")
+	}
+	
+	var tipos = bombas.keys()
+	var tipo = tipos[randi() % tipos.size()]
+	var escena_bomba = bombas[tipo]
+	
+	var new_bomba = escena_bomba.instantiate()
 	get_tree().current_scene.add_child(new_bomba)
 
 	# centro de la pantalla = jugador
@@ -38,3 +49,8 @@ func spawn_bombas():
 	var y = top_left.y
 
 	new_bomba.global_position = Vector2(x, y)
+
+
+func _on_timer_bombas_timeout() -> void:
+	for i in max_bombas:
+		spawn_bombas()
