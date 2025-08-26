@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 var state: String
 
-const GRAVEDAD_NORMAL : float = 700.0
-const GRAVEDAD_PARACAIDAS : float = 300.0
+var GRAVEDAD_NORMAL : float = 700.0
+var GRAVEDAD_PARACAIDAS : float = 300.0
 
 @export var habilidad_activa: String = "dash" # dash, super_salto,etc.
 
@@ -200,15 +200,19 @@ func damage_bombas(new_bomba):
 	match new_bomba:
 		"relentizar":
 			atributos["speed"] = 200 
+			GRAVEDAD_NORMAL = 350.0
+			GRAVEDAD_PARACAIDAS = 150.0
 			crear_timer(3, func():
 				atributos["speed"] = atributos_Base("speed")
-			
+				GRAVEDAD_NORMAL = 700.0
+				GRAVEDAD_PARACAIDAS = 300.0
 				)
 		"relentizar":
 			atributos["speed"] = 0
+			GRAVEDAD_NORMAL = 0
+			GRAVEDAD_PARACAIDAS = 0
 			crear_timer(3, func():
 				atributos["speed"] = atributos_Base("speed")
-			
+				GRAVEDAD_NORMAL = 700.0
+				GRAVEDAD_PARACAIDAS = 300.0
 				)
-	
-	pass
