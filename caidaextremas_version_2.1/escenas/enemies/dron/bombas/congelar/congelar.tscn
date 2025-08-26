@@ -14,3 +14,5 @@ shape = SubResource("CircleShape2D_twjby")
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(3, 3)
 texture = ExtResource("1_yvu8h")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

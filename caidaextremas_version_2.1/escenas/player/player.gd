@@ -193,3 +193,22 @@ func atributos_Base(key :String= "") -> Variant:
 	if key != "":
 		return base.get(key, null)
 	return base
+
+
+
+func damage_bombas(new_bomba):
+	match new_bomba:
+		"relentizar":
+			atributos["speed"] = 200 
+			crear_timer(3, func():
+				atributos["speed"] = atributos_Base("speed")
+			
+				)
+		"relentizar":
+			atributos["speed"] = 0
+			crear_timer(3, func():
+				atributos["speed"] = atributos_Base("speed")
+			
+				)
+	
+	pass
