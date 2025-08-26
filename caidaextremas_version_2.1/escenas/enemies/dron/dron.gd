@@ -22,6 +22,7 @@ func _physics_process(delta: float) -> void:
 func _on_detectar_jugador_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		jugador = body
+		$TimerBombas.start()
 
 
 func spawn_bombas():
