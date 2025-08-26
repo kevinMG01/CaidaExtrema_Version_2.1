@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://bqd0tj3ifchpw"]
+
+[ext_resource type="Script" uid="uid://dvxx1ddjrljh3" path="res://escenas/enemies/dron/dron.gd" id="1_vnf4a"]
+[ext_resource type="Texture2D" uid="uid://1bgxske2org1" path="res://icon.svg" id="2_cbyt1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p4qq4"]
+radius = 30.0167
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vnf4a"]
+size = Vector2(2590.5, 43)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vnf4a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cbyt1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="dron" type="CharacterBody2D"]
+script = ExtResource("1_vnf4a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_p4qq4")
+
+[node name="detectar_jugador" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detectar_jugador"]
+position = Vector2(617.75, 23.5)
+shape = SubResource("RectangleShape2D_vnf4a")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vnf4a")
+
+[node name="min" type="Marker2D" parent="."]
+position = Vector2(-879, 0)
+
+[node name="max" type="Marker2D" parent="."]
+position = Vector2(863, 5)
+
+[connection signal="body_entered" from="detectar_jugador" to="." method="_on_detectar_jugador_body_entered"]
