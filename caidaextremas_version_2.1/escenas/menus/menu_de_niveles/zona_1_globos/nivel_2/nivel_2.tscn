@@ -126,7 +126,11 @@ shape = SubResource("RectangleShape2D_o44d8")
 [node name="avion" parent="." instance=ExtResource("4_p4vfi")]
 position = Vector2(35, 342)
 
-[node name="MenuDead" parent="." node_paths=PackedStringArray("nivel") instance=ExtResource("5_1766j")]
-nivel = NodePath("..")
+[node name="MenuDead" parent="." instance=ExtResource("5_1766j")]
+offset_left = 1237.0
+offset_top = 538.0
+offset_right = 1237.0
+offset_bottom = 538.0
+nivel = 1
 
 [connection signal="body_entered" from="Meta" to="." method="_on_meta_body_entered"]
