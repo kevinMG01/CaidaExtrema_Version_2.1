@@ -18,3 +18,7 @@ func _on_jugar_pressed():
 
 func _on_inventario_pressed():
 	get_tree().change_scene_to_file("res://escenas/menus/inventario/Inventario.tscn")
+
+
+func _on_guardado_button_down() -> void:
+	GlobalVar.save_game()

@@ -109,5 +109,6 @@ texture_pressed = ExtResource("12_1k47n")
 texture_hover = ExtResource("9_82r7n")
 stretch_mode = 3
 
+[connection signal="button_down" from="Botones_centrales/HBoxContainer/Guardado" to="." method="_on_guardado_button_down"]
 [connection signal="pressed" from="Botones_centrales/Jugar" to="." method="_on_jugar_pressed"]
 [connection signal="pressed" from="Botones_centrales/Inventario" to="." method="_on_inventario_pressed"]
