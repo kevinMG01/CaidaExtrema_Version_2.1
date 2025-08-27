@@ -133,12 +133,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 428.0
+offset_left = 240.0
 offset_top = 95.0
-offset_right = -428.0
+offset_right = -240.0
 offset_bottom = -205.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(-84, 162)
 script = ExtResource("5_314rw")
 
 [node name="Fondo_Zona_1" type="TextureRect" parent="Zona_1"]
@@ -264,6 +265,7 @@ offset_right = -447.0
 offset_bottom = -219.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(-11, 185)
 
 [node name="Fondo_Zona_2" type="TextureRect" parent="Zona_2"]
 modulate = Color(0.690101, 0.144935, 0.303235, 1)
@@ -354,6 +356,7 @@ offset_right = -437.0
 offset_bottom = -202.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(300, 163)
 
 [node name="Fondo_Zona_3" type="TextureRect" parent="Zona_3"]
 modulate = Color(0.197491, 0.420725, 0.197005, 1)
@@ -443,6 +446,7 @@ offset_right = -440.0
 offset_bottom = -207.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(618, 176)
 
 [node name="Fondo_Zona_4" type="TextureRect" parent="Zona_4"]
 modulate = Color(0.0111077, 0.443028, 0.499513, 1)
@@ -532,6 +536,7 @@ offset_right = -432.0
 offset_bottom = -219.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(215, 416)
 
 [node name="Fondo_Zona_5" type="TextureRect" parent="Jefes_de_esta_area"]
 modulate = Color(0.257952, 0.283577, 0.885741, 1)
@@ -583,6 +588,9 @@ layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("4_rblec")
 
+[node name="agrandar_pantalla" type="Timer" parent="."]
+wait_time = 0.05
+
 [connection signal="button_down" from="VBoxContainer/HBoxContainer/Zona_1" to="." method="_on_zona_1_button_down"]
 [connection signal="button_down" from="VBoxContainer/HBoxContainer/Zona_2" to="." method="_on_zona_2_button_down"]
 [connection signal="button_down" from="VBoxContainer/HBoxContainer/Zona_3" to="." method="_on_zona_3_button_down"]
@@ -593,3 +601,4 @@ texture_normal = ExtResource("4_rblec")
 [connection signal="pressed" from="Zona_1/VBoxContainer2/HBoxContainer2/Nivel_1" to="Zona_1" method="_on_nivel_1_pressed"]
 [connection signal="pressed" from="Zona_1/VBoxContainer2/HBoxContainer2/Nivel_4" to="Zona_1" method="_on_nivel_4_pressed"]
 [connection signal="pressed" from="Zona_1/VBoxContainer2/HBoxContainer2/Nivel_5" to="Zona_1" method="_on_nivel_5_pressed"]
+[connection signal="timeout" from="agrandar_pantalla" to="." method="_on_agrandar_pantalla_timeout"]
