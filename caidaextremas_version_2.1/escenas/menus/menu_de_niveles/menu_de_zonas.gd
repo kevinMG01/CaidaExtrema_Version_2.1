@@ -42,3 +42,8 @@ func _on_zona_4_button_down() -> void:
 
 func _on_zona_5_button_down() -> void:
 	mostrar_zona(jefes_de_esta_area)
+
+
+func _on_volver_pressed() -> void:
+	get_tree().change_scene_to_file("res://escenas/menus/menu_principal/menu_principal.tscn")
+	pass # Replace with function body.

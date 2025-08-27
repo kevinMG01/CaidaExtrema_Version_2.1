@@ -124,6 +124,7 @@ grow_vertical = 0
 
 [node name="Volver" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 10
 texture_normal = ExtResource("3_1ii4f")
 
 [node name="Zona_1" type="Control" parent="."]
@@ -588,6 +589,7 @@ texture_normal = ExtResource("4_rblec")
 [connection signal="button_down" from="VBoxContainer/HBoxContainer/Zona_3" to="." method="_on_zona_3_button_down"]
 [connection signal="button_down" from="VBoxContainer/HBoxContainer/Zona_4" to="." method="_on_zona_4_button_down"]
 [connection signal="button_down" from="VBoxContainer/Jefes_de_esta_area" to="." method="_on_zona_5_button_down"]
+[connection signal="pressed" from="HBoxContainer/Volver" to="." method="_on_volver_pressed"]
 [connection signal="pressed" from="Zona_1/VBoxContainer2/HBoxContainer/Nivel_2" to="Zona_1" method="_on_nivel_2_pressed"]
 [connection signal="pressed" from="Zona_1/VBoxContainer2/HBoxContainer/Nivel_3" to="Zona_1" method="_on_nivel_3_pressed"]
 [connection signal="pressed" from="Zona_1/VBoxContainer2/HBoxContainer2/Nivel_1" to="Zona_1" method="_on_nivel_1_pressed"]
