@@ -44,5 +44,19 @@ position = Vector2(863, 5)
 [node name="TimerBombas" type="Timer" parent="."]
 wait_time = 5.0
 
+[node name="envestida" type="Timer" parent="."]
+one_shot = true
+
+[node name="regresar" type="Timer" parent="."]
+one_shot = true
+
+[node name="bomba_teledirigida" type="Timer" parent="."]
+
+[node name="spwn_enemigos" type="Timer" parent="."]
+
 [connection signal="body_entered" from="detectar_jugador" to="." method="_on_detectar_jugador_body_entered"]
 [connection signal="timeout" from="TimerBombas" to="." method="_on_timer_bombas_timeout"]
+[connection signal="timeout" from="envestida" to="." method="_on_envestida_timeout"]
+[connection signal="timeout" from="regresar" to="." method="_on_regresar_timeout"]
+[connection signal="timeout" from="bomba_teledirigida" to="." method="_on_bomba_teledirigida_timeout"]
+[connection signal="timeout" from="spwn_enemigos" to="." method="_on_spwn_enemigos_timeout"]

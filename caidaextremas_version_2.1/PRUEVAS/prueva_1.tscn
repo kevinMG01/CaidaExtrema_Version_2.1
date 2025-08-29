@@ -15,7 +15,7 @@ scale = Vector2(4.00781, 51.2969)
 texture = ExtResource("1_jppxf")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(-1595, 1185)
+position = Vector2(99, 1821)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(595, 630)
