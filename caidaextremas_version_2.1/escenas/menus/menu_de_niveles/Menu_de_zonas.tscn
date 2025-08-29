@@ -1,16 +1,18 @@
-[gd_scene load_steps=26 format=3 uid="uid://ex6riwp4ua5i"]
+[gd_scene load_steps=28 format=3 uid="uid://ex6riwp4ua5i"]
 
 [ext_resource type="Script" uid="uid://bp78uwht4bgc4" path="res://escenas/menus/menu_de_niveles/menu_de_zonas.gd" id="1_rblec"]
 [ext_resource type="Texture2D" uid="uid://cddlqs3hd6b53" path="res://assets/enemies/globo/Globo_enemigo_sprite_1.png" id="2_5d0gk"]
-[ext_resource type="Texture2D" uid="uid://bubdyxbk8qr1q" path="res://assets/menus/menu_de_niveles/Fondo del menu de zonas.png" id="2_w1f1c"]
-[ext_resource type="Texture2D" uid="uid://plf6micqddib" path="res://assets/menus/menu_principal/Botones/Boton_salir.png" id="3_1ii4f"]
+[ext_resource type="Texture2D" uid="uid://dnh723lmncm2n" path="res://assets/menus/menu_de_niveles/Fondo del menu de zonas.jpeg" id="2_tloew"]
 [ext_resource type="Texture2D" uid="uid://clq7gwied16ni" path="res://assets/enemies/ave_persecutora/Ave_persecutora sprite 1.png" id="4_57o5e"]
 [ext_resource type="Texture2D" uid="uid://bmgxnkxgghsv5" path="res://assets/menus/menu_de_niveles/Boton_nivel_ejemplo.png" id="4_rblec"]
 [ext_resource type="Script" uid="uid://bv2f1pqrytk3h" path="res://escenas/menus/menu_de_niveles/zona_1.gd" id="5_314rw"]
 [ext_resource type="Texture2D" uid="uid://c3at6umop8hnk" path="res://assets/enemies/ave_picada/Ave_picada sprite 1.png" id="6_nq4ie"]
 [ext_resource type="Texture2D" uid="uid://4px0uihsxoj8" path="res://assets/menus/menu_de_niveles/menu_zona1.png" id="6_yypwe"]
 [ext_resource type="Texture2D" uid="uid://bysnscx2tgcgj" path="res://assets/menus/menu_de_niveles/zona_1_globos/Boton nivel 2.png" id="7_p62h1"]
+[ext_resource type="Texture2D" uid="uid://dqwr5l1py6iji" path="res://assets/menus/Button_return.png" id="7_tloew"]
 [ext_resource type="Texture2D" uid="uid://bloqw33xocfbc" path="res://assets/menus/menu_de_niveles/zona_1_globos/Boton nivel 2_pressed.png" id="8_57o5e"]
+[ext_resource type="Texture2D" uid="uid://si2qehwux2bh" path="res://assets/menus/Button_return_pressed.png" id="8_p7luw"]
+[ext_resource type="Texture2D" uid="uid://7cg5uo7hnegy" path="res://assets/menus/Button_return_hover.png" id="9_n1mw2"]
 [ext_resource type="Texture2D" uid="uid://bryhb1jj1mvhh" path="res://assets/menus/menu_de_niveles/zona_1_globos/Boton nivel 2_hover.png" id="9_nq4ie"]
 [ext_resource type="Texture2D" uid="uid://1wbalk7nuhmj" path="res://assets/menus/menu_de_niveles/zona_1_globos/Boton nivel bloqueado zona 1.png" id="10_gfwua"]
 [ext_resource type="Texture2D" uid="uid://bd4kfqg3d1yh6" path="res://assets/menus/menu_de_niveles/zona_1_globos/Boton nivel 3.png" id="11_tloew"]
@@ -42,7 +44,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_w1f1c")
+texture = ExtResource("2_tloew")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -125,7 +127,9 @@ grow_vertical = 0
 [node name="Volver" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
-texture_normal = ExtResource("3_1ii4f")
+texture_normal = ExtResource("7_tloew")
+texture_pressed = ExtResource("8_p7luw")
+texture_hover = ExtResource("9_n1mw2")
 
 [node name="Zona_1" type="Control" parent="."]
 visible = false
