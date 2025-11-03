@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://das7o3cm6sro4" path="res://escenas/menus/menu_de_niveles/zona_2_ave_persecutora/nivel_6.gd" id="1_2sp0j"]
 [ext_resource type="Texture2D" uid="uid://xjhgcnaduwe3" path="res://assets/Zonas/Zona_1/Nubes y cielo dia.png" id="2_x83ml"]
-[ext_resource type="PackedScene" uid="uid://yn5a0qhdejhy" path="res://escenas/player/player.tscn" id="3_p0kcj"]
+[ext_resource type="PackedScene" uid="uid://du5q4kj6nvh12" path="res://escenas/avion/avion.tscn" id="4_p0kcj"]
 [ext_resource type="PackedScene" uid="uid://f5ppsi22200" path="res://escenas/enemies/enemigo_AVE_normal/ave_normal.tscn" id="4_xccpa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p0kcj"]
@@ -113,9 +113,6 @@ shape = SubResource("RectangleShape2D_cw3li")
 position = Vector2(639, 6300)
 shape = SubResource("RectangleShape2D_j7jcv")
 
-[node name="player" parent="." instance=ExtResource("3_p0kcj")]
-position = Vector2(719, 63)
-
 [node name="Enemigo" type="Node2D" parent="."]
 
 [node name="ave_normal" parent="Enemigo" instance=ExtResource("4_xccpa")]
@@ -123,5 +120,8 @@ position = Vector2(1156, 1536)
 
 [node name="ave_normal2" parent="Enemigo" instance=ExtResource("4_xccpa")]
 position = Vector2(161, 4136)
+
+[node name="avion" parent="." instance=ExtResource("4_p0kcj")]
+position = Vector2(35, 342)
 
 [connection signal="body_entered" from="Meta" to="." method="_on_meta_body_entered"]

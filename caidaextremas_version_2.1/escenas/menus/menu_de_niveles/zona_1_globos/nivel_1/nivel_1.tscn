@@ -1,11 +1,9 @@
-[gd_scene load_steps=11 format=4 uid="uid://biy80dxettm10"]
+[gd_scene load_steps=10 format=4 uid="uid://dnjp5x0demiar"]
 
 [ext_resource type="Texture2D" uid="uid://xjhgcnaduwe3" path="res://assets/Zonas/Zona_1/Nubes y cielo dia.png" id="1_bx6lr"]
 [ext_resource type="Script" uid="uid://81eaj85wy2d2" path="res://escenas/menus/menu_de_niveles/zona_1_globos/nivel_1/nivel_1.gd" id="1_iu7yy"]
-[ext_resource type="PackedScene" uid="uid://vh5jwq5a514g" path="res://escenas/enemies/globo/globo.tscn" id="3_288qa"]
-
-[ext_resource type="PackedScene" uid="uid://bousgp3icqk3c" path="res://escenas/enemies/cow/Vaca.tscn" id="5_rfy4n"]
-
+[ext_resource type="PackedScene" uid="uid://du5q4kj6nvh12" path="res://escenas/avion/avion.tscn" id="3_288qa"]
+[ext_resource type="PackedScene" uid="uid://vh5jwq5a514g" path="res://escenas/enemies/globo/globo.tscn" id="4_iu7yy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iu7yy"]
 texture = ExtResource("1_bx6lr")
@@ -54,13 +52,13 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_iu7yy")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rfy4n"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8pn2u"]
 size = Vector2(699, 30)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iu7yy"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_656pd"]
 size = Vector2(130, 10889)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8pn2u"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v46s3"]
 size = Vector2(1533.5, 59)
 
 [node name="Nivel1" type="Node2D"]
@@ -75,12 +73,12 @@ tile_set = SubResource("TileSet_rfy4n")
 
 [node name="Nubes_sol" type="TileMapLayer" parent="Tilesets"]
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAADAAUAAAAEAAAAAAAEAAUAAAAFAAAAAAAIAAoAAAAGAAAAAAAJAAoAAAAHAAAAAAACABMAAAAGAAAAAAADABMAAAAHAAAAAAABAA4AAAAGAAAAAAACAA4AAAAHAAAAAAAKABoAAAAGAAAAAAALABoAAAAHAAAAAAABACQAAAAGAAAAAAACACQAAAAHAAAAAAAKACcAAAAGAAAAAAALACcAAAAHAAAAAAADAC8AAAAGAAAAAAAEAC8AAAAHAAAAAAAKADcAAAAGAAAAAAALADcAAAAHAAAAAAABADsAAAAGAAAAAAACADsAAAAHAAAAAAAIADwAAAAGAAAAAAAJADwAAAAHAAAAAAADADUAAAAIAAAAAAAKADAAAAAIAAAAAAAGACgAAAAIAAAAAAAFABsAAAAIAAAAAAALABIAAAAIAAAAAAAMAAUAAAAJAAAAAAANAAUAAAAKAAAAAAAMAAkAAAAJAAAAAAANAAkAAAAKAAAAAAD//xsAAAAJAAAAAAAAABsAAAAKAAAAAAAMACAAAAAJAAAAAAANACAAAAAKAAAAAAAMAAYAAAAXAAAAAAA=")
+tile_map_data = PackedByteArray("AAACABMAAAAGAAAAAAADABMAAAAHAAAAAAALABIAAAAEAAAAAAAHABAAAAAJAAAAAAAIABAAAAAKAAAAAAAAAAgAAAAJAAAAAAABAAgAAAAKAAAAAAAEAAgAAAAJAAAAAAAFAAgAAAAKAAAAAAAMABIAAAAFAAAAAAAMABEAAAAXAAAAAAAEACMAAAAJAAAAAAAFACMAAAAKAAAAAAD//xkAAAAJAAAAAAAAABkAAAAKAAAAAAAMAAsAAAAJAAAAAAANAAsAAAAKAAAAAAAEACgAAAAJAAAAAAAFACgAAAAKAAAAAAAHADIAAAAJAAAAAAAIADIAAAAKAAAAAAD//zYAAAAJAAAAAAAAADYAAAAKAAAAAAALADgAAAAJAAAAAAAMADgAAAAKAAAAAAAMAC0AAAAJAAAAAAANAC0AAAAKAAAAAAAFADkAAAAIAAAAAAACAC8AAAAIAAAAAAAMACkAAAAIAAAAAAAKABoAAAAIAAAAAAA=")
 tile_set = SubResource("TileSet_rfy4n")
 
 [node name="Piso" type="TileMapLayer" parent="Tilesets"]
 scale = Vector2(5, 5)
-tile_map_data = PackedByteArray("AAAAACcAAAAjAAAAAAAAACgAAAAkAAAAAAABACcAAAAjAAAAAAABACgAAAAkAAAAAAACACcAAAAjAAAAAAACACgAAAAkAAAAAAADACcAAAAjAAAAAAADACgAAAAkAAAAAAAEACcAAAAjAAAAAAAEACgAAAAkAAAAAAAFACcAAAAjAAAAAAAFACgAAAAkAAAAAAAGACcAAAAjAAAAAAAGACgAAAAkAAAAAAAHACcAAAAjAAAAAAAHACgAAAAkAAAAAAD8/ycAAAAjAAAAAAD9/ycAAAAjAAAAAAD+/ycAAAAjAAAAAAD//ycAAAAjAAAAAAAIACcAAAAjAAAAAAAJACcAAAAjAAAAAAAKACcAAAAjAAAAAAALACcAAAAjAAAAAAD8/yYAAAAiAAAAAAD9/yYAAAAiAAAAAAD+/yYAAAAiAAAAAAD//yYAAAAiAAAAAAAAACYAAAAiAAAAAAABACYAAAAiAAAAAAACACYAAAAiAAAAAAADACYAAAAiAAAAAAAEACYAAAAiAAAAAAAFACYAAAAiAAAAAAAGACYAAAAiAAAAAAAHACYAAAAiAAAAAAAIACYAAAAiAAAAAAAJACYAAAAiAAAAAAAKACYAAAAiAAAAAAALACYAAAAiAAAAAAD8/ygAAAAkAAAAAAD9/ygAAAAkAAAAAAD+/ygAAAAkAAAAAAD//ygAAAAkAAAAAAAIACgAAAAkAAAAAAAJACgAAAAkAAAAAAAKACgAAAAkAAAAAAALACgAAAAkAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAACcAAAAjAAAAAAAAACgAAAAkAAAAAAABACcAAAAjAAAAAAABACgAAAAkAAAAAAACACcAAAAjAAAAAAACACgAAAAkAAAAAAADACcAAAAjAAAAAAADACgAAAAkAAAAAAAEACcAAAAjAAAAAAAEACgAAAAkAAAAAAAFACcAAAAjAAAAAAAFACgAAAAkAAAAAAAGACcAAAAjAAAAAAAGACgAAAAkAAAAAAAHACcAAAAjAAAAAAAHACgAAAAkAAAAAAAIACcAAAAjAAAAAAAJACcAAAAjAAAAAAAKACcAAAAjAAAAAAALACcAAAAjAAAAAAD8/ycAAAAjAAAAAAD9/ycAAAAjAAAAAAD+/ycAAAAjAAAAAAD//ycAAAAjAAAAAAD8/ygAAAAkAAAAAAD9/ygAAAAkAAAAAAD+/ygAAAAkAAAAAAD//ygAAAAkAAAAAAAIACgAAAAkAAAAAAAJACgAAAAkAAAAAAAKACgAAAAkAAAAAAALACgAAAAkAAAAAAD8/yYAAAAiAAAAAAD9/yYAAAAiAAAAAAD+/yYAAAAiAAAAAAD//yYAAAAiAAAAAAAAACYAAAAiAAAAAAABACYAAAAiAAAAAAACACYAAAAiAAAAAAADACYAAAAiAAAAAAAEACYAAAAiAAAAAAAFACYAAAAiAAAAAAAGACYAAAAiAAAAAAAHACYAAAAiAAAAAAAIACYAAAAiAAAAAAAJACYAAAAiAAAAAAAKACYAAAAiAAAAAAALACYAAAAiAAAAAAA=")
 tile_set = SubResource("TileSet_rfy4n")
 
 [node name="Meta" type="TileMapLayer" parent="Tilesets"]
@@ -88,49 +86,38 @@ scale = Vector2(7, 7)
 tile_map_data = PackedByteArray("AAABABoAAAAdAAAAAAABABsAAAAcAAAAAAACABoAAAAeAAAAAAADABoAAAAeAAAAAAADABsAAAAhAAAAAAAEABoAAAAfAAAAAAAEABsAAAAgAAAAAAA=")
 tile_set = SubResource("TileSet_rfy4n")
 
-
 [node name="Meta" type="Area2D" parent="."]
 position = Vector2(633, 6254)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Meta"]
 position = Vector2(-1.5, 3)
-shape = SubResource("RectangleShape2D_rfy4n")
+shape = SubResource("RectangleShape2D_8pn2u")
 debug_color = Color(0.546292, 0.56523, 0, 0.42)
 
 [node name="Limites" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Limites"]
 position = Vector2(-55, 5434.5)
-shape = SubResource("RectangleShape2D_iu7yy")
+shape = SubResource("RectangleShape2D_656pd")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Limites"]
 position = Vector2(1345, 5435)
-shape = SubResource("RectangleShape2D_iu7yy")
+shape = SubResource("RectangleShape2D_656pd")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Limites"]
-position = Vector2(639, 6300)
-shape = SubResource("RectangleShape2D_8pn2u")
+position = Vector2(643, 6306)
+shape = SubResource("RectangleShape2D_v46s3")
 
-[node name="player" parent="." instance=ExtResource("2_288qa")]
-position = Vector2(730, 0)
+[node name="avion" parent="." instance=ExtResource("3_288qa")]
+position = Vector2(35, 342)
 
-[node name="Enemigos" type="Node2D" parent="."]
+[node name="Globo" parent="." instance=ExtResource("4_iu7yy")]
+position = Vector2(1213, 1723)
 
-[node name="Globo" parent="Enemigos" instance=ExtResource("3_288qa")]
-position = Vector2(1222, 1457)
+[node name="Globo2" parent="." instance=ExtResource("4_iu7yy")]
+position = Vector2(295, 3273)
 
-[node name="Globo2" parent="Enemigos" instance=ExtResource("3_288qa")]
-position = Vector2(1207, 3314)
-
-[node name="Globo3" parent="Enemigos" instance=ExtResource("3_288qa")]
-position = Vector2(74, 5179)
-
-
-[node name="Vaca" parent="." instance=ExtResource("5_rfy4n")]
-position = Vector2(879, 6060)
-
-
-[node name="avion" parent="." instance=ExtResource("5_rfy4n")]
-position = Vector2(-65, 246)
+[node name="Globo3" parent="." instance=ExtResource("4_iu7yy")]
+position = Vector2(1134, 5180)
 
 [connection signal="body_entered" from="Meta" to="." method="_on_meta_body_entered"]

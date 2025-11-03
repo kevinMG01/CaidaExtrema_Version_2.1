@@ -10,6 +10,8 @@ const GRAVEDAD_PARACAIDAS : float = 300.0
 var  is_dashing :bool = false
 var  is_super_salto :bool = false
 
+var is_paracaidas : bool = false
+var is_dash_button :bool = false
 var atributos: Dictionary = {}
 var atributos_extras: Dictionary = {} # no esta programado, es para el futuro
 
@@ -38,14 +40,23 @@ func _physics_process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = atributos["jump"]
-		print(atributos)
+
 	elif Input.is_action_just_pressed("ui_up") and not is_on_floor():
-		if atributos["paracaidas_activado"]:
+		if atributos["paracaidas_activado"] and not is_paracaidas:
 			set_state("quitar_paracaidas")
+			is_paracaidas = true
+			crear_timer(7, func():
+				is_paracaidas = false
+			)
 		else:
 			set_state("abrir_paracaidas")
-	if Input.is_action_just_pressed("ui_down"):
-		ejecutar_habilidad(habilidad_activa)
+	if Input.is_action_just_pressed("ui_F") or Input.is_action_just_pressed("ui_l"):
+		if not is_dash_button:
+			ejecutar_habilidad(habilidad_activa)
+			is_dash_button = true
+			crear_timer(5,func():
+				is_dash_button = false
+			)
 
 func move(direction): # controlamos el movimineto
 	if direction:

@@ -4,6 +4,8 @@ var player = preload("res://escenas/player/player.tscn")
 
 var player_en_escena = false
 
+@export var camara : int = 1
+
 func _physics_process(delta: float) -> void:
 	position.x += 2
 
@@ -11,6 +13,7 @@ func _physics_process(delta: float) -> void:
 func spawn():
 	var new_player = player.instantiate()
 	new_player.global_position = $player.global_position
+	new_player.nivel_camara = camara
 	$player.visible = false
 	$Camera2D.queue_free()
 	get_parent().add_child(new_player)
