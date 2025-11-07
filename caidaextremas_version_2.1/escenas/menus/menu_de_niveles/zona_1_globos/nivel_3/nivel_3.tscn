@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://7gqhv2w5du6n"]
+[gd_scene load_steps=11 format=4 uid="uid://7gqhv2w5du6n"]
 
 [ext_resource type="Script" uid="uid://deqi6b2nklh45" path="res://escenas/menus/menu_de_niveles/zona_1_globos/nivel_3/nivel_3.gd" id="1_kcepg"]
 [ext_resource type="Texture2D" uid="uid://xjhgcnaduwe3" path="res://assets/Zonas/Zona_1/Nubes y cielo dia.png" id="1_yoq70"]
 [ext_resource type="PackedScene" uid="uid://vh5jwq5a514g" path="res://escenas/enemies/globo/globo.tscn" id="3_be1dd"]
 [ext_resource type="PackedScene" uid="uid://du5q4kj6nvh12" path="res://escenas/avion/avion.tscn" id="4_kcepg"]
+[ext_resource type="AudioStream" uid="uid://b4y0dvneet47g" path="res://assets/musics/beyond-the-clouds-315190.mp3" id="5_be1dd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yoq70"]
 texture = ExtResource("1_yoq70")
@@ -129,5 +130,9 @@ shape = SubResource("RectangleShape2D_u2il0")
 
 [node name="avion" parent="." instance=ExtResource("4_kcepg")]
 position = Vector2(35, 342)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_be1dd")
+autoplay = true
 
 [connection signal="body_entered" from="Meta" to="." method="_on_meta_body_entered"]

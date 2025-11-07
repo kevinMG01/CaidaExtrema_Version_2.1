@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://fotj0skyekit"]
+[gd_scene load_steps=11 format=4 uid="uid://fotj0skyekit"]
 
 [ext_resource type="Script" uid="uid://cqb2x3d76jaoc" path="res://escenas/menus/menu_de_niveles/zona_1_globos/nivel_5/nivel_5.gd" id="1_7ra68"]
 [ext_resource type="Texture2D" uid="uid://xjhgcnaduwe3" path="res://assets/Zonas/Zona_1/Nubes y cielo dia.png" id="1_cgqbp"]
 [ext_resource type="PackedScene" uid="uid://vh5jwq5a514g" path="res://escenas/enemies/globo/globo.tscn" id="3_txbh5"]
 [ext_resource type="PackedScene" uid="uid://du5q4kj6nvh12" path="res://escenas/avion/avion.tscn" id="4_7ra68"]
+[ext_resource type="AudioStream" uid="uid://b4y0dvneet47g" path="res://assets/musics/beyond-the-clouds-315190.mp3" id="5_txbh5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7ra68"]
 texture = ExtResource("1_cgqbp")
@@ -143,5 +144,9 @@ position = Vector2(414, 8852)
 [node name="avion" parent="." instance=ExtResource("4_7ra68")]
 position = Vector2(35, 342)
 camara = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_txbh5")
+autoplay = true
 
 [connection signal="body_entered" from="Meta" to="." method="_on_meta_body_entered"]

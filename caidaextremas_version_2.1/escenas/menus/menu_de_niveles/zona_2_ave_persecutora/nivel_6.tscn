@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://dlgekhbmpg7r6"]
+[gd_scene load_steps=11 format=4 uid="uid://dlgekhbmpg7r6"]
 
 [ext_resource type="Script" uid="uid://das7o3cm6sro4" path="res://escenas/menus/menu_de_niveles/zona_2_ave_persecutora/nivel_6.gd" id="1_2sp0j"]
 [ext_resource type="Texture2D" uid="uid://xjhgcnaduwe3" path="res://assets/Zonas/Zona_1/Nubes y cielo dia.png" id="2_x83ml"]
 [ext_resource type="PackedScene" uid="uid://du5q4kj6nvh12" path="res://escenas/avion/avion.tscn" id="4_p0kcj"]
 [ext_resource type="PackedScene" uid="uid://f5ppsi22200" path="res://escenas/enemies/enemigo_AVE_normal/ave_normal.tscn" id="4_xccpa"]
+[ext_resource type="AudioStream" uid="uid://b4y0dvneet47g" path="res://assets/musics/beyond-the-clouds-315190.mp3" id="5_xccpa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p0kcj"]
 texture = ExtResource("2_x83ml")
@@ -123,5 +124,9 @@ position = Vector2(161, 4136)
 
 [node name="avion" parent="." instance=ExtResource("4_p0kcj")]
 position = Vector2(35, 342)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_xccpa")
+autoplay = true
 
 [connection signal="body_entered" from="Meta" to="." method="_on_meta_body_entered"]
