@@ -10,6 +10,6 @@ func set_direction(new_direction: Vector2) -> void:
 	direction = new_direction.normalized()
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("payer"):
+	if body.is_in_group("player"):
 		body. damage_bombas("congelar")
 		self.queue_free()

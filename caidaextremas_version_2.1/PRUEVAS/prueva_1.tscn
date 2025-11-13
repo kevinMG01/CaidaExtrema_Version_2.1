@@ -25,4 +25,3 @@ shape = SubResource("RectangleShape2D_jyx05")
 
 [node name="dron" parent="." instance=ExtResource("2_jppxf")]
 position = Vector2(49, 488)
-fases = 2

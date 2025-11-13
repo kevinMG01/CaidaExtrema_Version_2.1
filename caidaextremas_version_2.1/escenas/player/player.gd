@@ -7,6 +7,8 @@ var GRAVEDAD_PARACAIDAS : float = 300.0
 
 @export var habilidad_activa: String = "dash" # dash, super_salto,etc.
 
+var cooldown_habilidad :bool = true
+var tiempo_de_cooldown : int = 3
 var  is_dashing :bool = false
 var  is_super_salto :bool = false
 
@@ -19,14 +21,11 @@ var nivel_camara = 1
 func _ready() -> void:
 	for key in atributos_Base().keys():
 		atributos[key] = atributos_Base(key)
-		print(key)
 
 	#atributos["speed"] = 0
 
-	print(atributos)
 	atributos["speed"] = atributos_Base("speed")#para reemplasar un atributo
 	set_state("quitar_paracaidas")
-	print(atributos)
 
 func _physics_process(delta: float) -> void:
 	aplicar_gravedad(delta)
@@ -45,6 +44,7 @@ func _input(event: InputEvent) -> void:
 		else:
 			set_state("abrir_paracaidas")
 	if Input.is_action_just_pressed("ui_down"):
+		
 		ejecutar_habilidad(habilidad_activa)
 
 func move(direction): # controlamos el movimineto
@@ -151,21 +151,24 @@ func ejecutar_habilidad(nombre: String):
 
 	match nombre:
 		"dash":
-			is_dashing = true
-			atributos["speed"] = 2000.0
-			crear_timer(0.08, func():
-				atributos["speed"] = atributos_Base("speed")
-				is_dashing = false
-			)
+			if cooldown_habilidad:
+				is_dashing = true
+				atributos["speed"] = 2000.0
+				crear_timer(0.08, func():
+					atributos["speed"] = atributos_Base("speed")
+					is_dashing = false
+					cooldown_habilidad = false
+					$cooldown_de_habilidad_dash.start(tiempo_de_cooldown)
+				)
 
-		"super_salto":
-			is_super_salto = true
-			atributos["jump"] = -900.0
-			crear_timer(4.0, func():
-				atributos["jump"] = atributos_Base("jump")
-				is_super_salto = false
-				
-			)
+		#"super_salto":
+			#is_super_salto = true
+			#atributos["jump"] = -900.0
+			#crear_timer(4.0, func():
+				#atributos["jump"] = atributos_Base("jump")
+				#is_super_salto = false
+				#
+			#)
 
 func crear_timer(tiempo: float, callback: Callable):
 	var timer :Timer = Timer.new()
@@ -195,7 +198,6 @@ func atributos_Base(key :String= "") -> Variant:
 	return base
 
 
-
 func damage_bombas(new_bomba):
 	match new_bomba:
 		"relentizar":
@@ -207,7 +209,7 @@ func damage_bombas(new_bomba):
 				GRAVEDAD_NORMAL = 700.0
 				GRAVEDAD_PARACAIDAS = 300.0
 				)
-		"relentizar":
+		"congelar":
 			atributos["speed"] = 0
 			GRAVEDAD_NORMAL = 0
 			GRAVEDAD_PARACAIDAS = 0
@@ -216,3 +218,8 @@ func damage_bombas(new_bomba):
 				GRAVEDAD_NORMAL = 700.0
 				GRAVEDAD_PARACAIDAS = 300.0
 				)
+
+
+func _on_cooldown_de_habilidad_dash_timeout() -> void:
+	cooldown_habilidad = true
+	pass # Replace with function body.

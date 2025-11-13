@@ -155,4 +155,7 @@ drag_top_margin = 0.05
 editor_draw_drag_margin = true
 script = ExtResource("18_ggbhw")
 
+[node name="cooldown_de_habilidad_dash" type="Timer" parent="."]
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="cooldown_de_habilidad_dash" to="." method="_on_cooldown_de_habilidad_dash_timeout"]
