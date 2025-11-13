@@ -3,9 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://xjhgcnaduwe3" path="res://assets/Zonas/Zona_1/Nubes y cielo dia.png" id="1_bx6lr"]
 [ext_resource type="Script" uid="uid://81eaj85wy2d2" path="res://escenas/menus/menu_de_niveles/zona_1_globos/nivel_1/nivel_1.gd" id="1_iu7yy"]
 [ext_resource type="PackedScene" uid="uid://vh5jwq5a514g" path="res://escenas/enemies/globo/globo.tscn" id="3_288qa"]
-
+[ext_resource type="PackedScene" uid="uid://yn5a0qhdejhy" path="res://escenas/player/player.tscn" id="5_8pn2u"]
 [ext_resource type="PackedScene" uid="uid://bousgp3icqk3c" path="res://escenas/enemies/cow/Vaca.tscn" id="5_rfy4n"]
-
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iu7yy"]
 texture = ExtResource("1_bx6lr")
@@ -88,7 +87,6 @@ scale = Vector2(7, 7)
 tile_map_data = PackedByteArray("AAABABoAAAAdAAAAAAABABsAAAAcAAAAAAACABoAAAAeAAAAAAADABoAAAAeAAAAAAADABsAAAAhAAAAAAAEABoAAAAfAAAAAAAEABsAAAAgAAAAAAA=")
 tile_set = SubResource("TileSet_rfy4n")
 
-
 [node name="Meta" type="Area2D" parent="."]
 position = Vector2(633, 6254)
 
@@ -111,9 +109,6 @@ shape = SubResource("RectangleShape2D_iu7yy")
 position = Vector2(639, 6300)
 shape = SubResource("RectangleShape2D_8pn2u")
 
-[node name="player" parent="." instance=ExtResource("2_288qa")]
-position = Vector2(730, 0)
-
 [node name="Enemigos" type="Node2D" parent="."]
 
 [node name="Globo" parent="Enemigos" instance=ExtResource("3_288qa")]
@@ -125,12 +120,13 @@ position = Vector2(1207, 3314)
 [node name="Globo3" parent="Enemigos" instance=ExtResource("3_288qa")]
 position = Vector2(74, 5179)
 
-
 [node name="Vaca" parent="." instance=ExtResource("5_rfy4n")]
 position = Vector2(879, 6060)
 
-
 [node name="avion" parent="." instance=ExtResource("5_rfy4n")]
 position = Vector2(-65, 246)
+
+[node name="player" parent="." instance=ExtResource("5_8pn2u")]
+position = Vector2(23, 211)
 
 [connection signal="body_entered" from="Meta" to="." method="_on_meta_body_entered"]
