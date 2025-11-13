@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqd0tj3ifchpw"]
+[gd_scene load_steps=7 format=3 uid="uid://bqd0tj3ifchpw"]
 
 [ext_resource type="Script" uid="uid://dvxx1ddjrljh3" path="res://escenas/enemies/dron/dron.gd" id="1_vnf4a"]
 [ext_resource type="Texture2D" uid="uid://1bgxske2org1" path="res://icon.svg" id="2_cbyt1"]
@@ -20,11 +20,23 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_cbyt1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cbyt1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="dron" type="CharacterBody2D"]
 script = ExtResource("1_vnf4a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_p4qq4")
+disabled = true
 
 [node name="detectar_jugador" type="Area2D" parent="."]
 
@@ -34,6 +46,11 @@ shape = SubResource("RectangleShape2D_vnf4a")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_vnf4a")
+
+[node name="alerta" type="AnimatedSprite2D" parent="."]
+visible = false
+scale = Vector2(2.74219, 2.74219)
+sprite_frames = SubResource("SpriteFrames_cbyt1")
 
 [node name="min" type="Marker2D" parent="."]
 position = Vector2(-879, 0)
@@ -54,9 +71,13 @@ one_shot = true
 
 [node name="spwn_enemigos" type="Timer" parent="."]
 
+[node name="stop_ani_alesta" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="detectar_jugador" to="." method="_on_detectar_jugador_body_entered"]
 [connection signal="timeout" from="TimerBombas" to="." method="_on_timer_bombas_timeout"]
 [connection signal="timeout" from="envestida" to="." method="_on_envestida_timeout"]
 [connection signal="timeout" from="regresar" to="." method="_on_regresar_timeout"]
 [connection signal="timeout" from="bomba_teledirigida" to="." method="_on_bomba_teledirigida_timeout"]
 [connection signal="timeout" from="spwn_enemigos" to="." method="_on_spwn_enemigos_timeout"]
+[connection signal="timeout" from="stop_ani_alesta" to="." method="_on_stop_ani_alesta_timeout"]

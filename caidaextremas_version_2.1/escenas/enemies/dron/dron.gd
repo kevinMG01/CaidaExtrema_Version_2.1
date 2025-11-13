@@ -3,7 +3,7 @@ extends CharacterBody2D
 var bomba_congenar = preload("res://escenas/enemies/dron/bombas/congelar/congelar.tscn")
 var bomba_paralizar
 
-var SPEED = 250.0
+var SPEED = 210.0
 var UMBRAL_X = 7.0
 
 var jugador = null
@@ -79,6 +79,8 @@ func spawn_bombas():
 	var y = top_left.y
 
 	new_bomba.global_position = Vector2(x, y)
+	$alerta.visible = true
+	$stop_ani_alesta.start(2)
 
 func spawn_bombas_fase_2(enem):
 	var enemigos : Dictionary = {
@@ -100,7 +102,6 @@ func spawn_bombas_fase_2(enem):
 	var tipo = tipos[randi() % tipos.size()]
 	var escena_bomba = bombas[tipo]
 
-
 	match enem:
 		"enemigos":
 			var new_enemigo = escena_enemi.instantiate()
@@ -119,44 +120,53 @@ func spawn_bombas_fase_2(enem):
 			var y = bottom_right.y
 
 			new_enemigo.global_position = Vector2(x, y)
+
 		"bomba":
 			var new_enemigo = escena_bomba.instantiate()
 			new_enemigo.direction = jugador.global_position - global_position
 			get_parent().add_child(new_enemigo)
 
 func _on_timer_bombas_timeout() -> void:
-	for i in max_bombas:
-		spawn_bombas()
+	if jugador != null:
+		for i in max_bombas:
+			spawn_bombas()
 
 func _on_envestida_timeout() -> void:
-	pos_ancla = global_position
-	pos_dirigida = jugador.global_position
-	SPEED = 600.0
-	estado = Estado.EMBESTIDA
-	$regresar.start(1.6)
+	if jugador != null:
+		pos_ancla = global_position
+		pos_dirigida = jugador.global_position
+		SPEED = 600.0
+		estado = Estado.EMBESTIDA
+		$regresar.start(1.6)
 
 func _process(delta: float) -> void:
 	if estado == Estado.REGRESO and global_position.distance_to(pos_dirigida) < 500:
 		estado = Estado.ESPERANDO
-		SPEED = 250.0
+		SPEED = 210.0
 		$envestida.start(tiempo_embestida) 
 
 func _on_regresar_timeout() -> void:
-	var center = jugador.global_position
-	var screen_size = get_viewport_rect().size
-	
-	var top_left = center - screen_size / 2
-	var top_right = center + Vector2(screen_size.x/2, -screen_size.y/2)
-	
-	var x = randf_range(top_left.x, top_right.x)
-	var y = top_left.y - 50  # un poco más arriba del borde
-	
-	pos_dirigida = Vector2(x, y)
-	SPEED = 400.0
-	estado = Estado.REGRESO
+	if jugador != null:
+		var center = jugador.global_position
+		var screen_size = get_viewport_rect().size
+		
+		var top_left = center - screen_size / 2
+		var top_right = center + Vector2(screen_size.x/2, -screen_size.y/2)
+		
+		var x = randf_range(top_left.x, top_right.x)
+		var y = top_left.y - 50  # un poco más arriba del borde
+		
+		pos_dirigida = Vector2(x, y)
+		SPEED = 400.0
+		estado = Estado.REGRESO
 
 func _on_bomba_teledirigida_timeout() -> void:
-	spawn_bombas_fase_2("bomba")
+	if jugador != null:
+		spawn_bombas_fase_2("bomba")
 
 func _on_spwn_enemigos_timeout() -> void:
-	spawn_bombas_fase_2("enemigos")
+	if jugador != null:
+		spawn_bombas_fase_2("enemigos")
+
+func _on_stop_ani_alesta_timeout() -> void:
+	$alerta.visible = false

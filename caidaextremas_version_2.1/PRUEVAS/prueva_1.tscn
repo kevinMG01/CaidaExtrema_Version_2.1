@@ -15,7 +15,7 @@ scale = Vector2(4.00781, 51.2969)
 texture = ExtResource("1_jppxf")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(99, 1821)
+position = Vector2(-1565, 1772)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(595, 630)
@@ -25,3 +25,4 @@ shape = SubResource("RectangleShape2D_jyx05")
 
 [node name="dron" parent="." instance=ExtResource("2_jppxf")]
 position = Vector2(49, 488)
+fases = 2
