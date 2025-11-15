@@ -140,7 +140,7 @@ shape = SubResource("RectangleShape2D_ggbhw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gpfcj")
-animation = &"abrir_paracaidas"
+animation = &"Idle"
 
 [node name="visualNode" type="Node2D" parent="."]
 
@@ -156,6 +156,11 @@ editor_draw_drag_margin = true
 script = ExtResource("18_ggbhw")
 
 [node name="cooldown_de_habilidad_dash" type="Timer" parent="."]
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(13, 60)
+enabled = false
+target_position = Vector2(0, 175)
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="cooldown_de_habilidad_dash" to="." method="_on_cooldown_de_habilidad_dash_timeout"]

@@ -15,6 +15,9 @@ var  is_super_salto :bool = false
 var atributos: Dictionary = {}
 var atributos_extras: Dictionary = {} # no esta programado, es para el futuro
 
+var determinar_si_hay_suelo = false
+var cooldown_equipamiento_paracaida = 4
+var paracaida_equipada = false
 
 var nivel_camara = 1
 
@@ -32,15 +35,29 @@ func _physics_process(delta: float) -> void:
 	var direction :int = Input.get_axis("ui_left", "ui_right")
 	move(direction)
 	update_state(direction)
+	
+	#determinamos cuando el jugador cae al vasio
+	if is_on_floor():
+		determinar_si_hay_suelo = true
+	if atributos["paracaidas_activado"] and determinar_si_hay_suelo:
+		if $RayCast2D.is_colliding():
+			pass
+		else:
+			crear_timer(2, func():
+					if !state in ["paracaidas_equipada", "quitar_paracaidas"]:
+						set_state("quitar_paracaidas")
+						determinar_si_hay_suelo = false
+					)
+
 	move_and_slide()
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = atributos["jump"]
-		print(atributos)
-	elif Input.is_action_just_pressed("ui_up") and not is_on_floor():
+	elif Input.is_action_just_pressed("ui_up") and not is_on_floor() and !$RayCast2D.is_colliding():
 		if atributos["paracaidas_activado"]:
 			set_state("quitar_paracaidas")
+			
 		else:
 			set_state("abrir_paracaidas")
 	if Input.is_action_just_pressed("ui_down"):
@@ -51,8 +68,16 @@ func move(direction): # controlamos el movimineto
 	if direction:
 		velocity.x = direction * atributos["speed"]
 		$AnimatedSprite2D.flip_h = direction < 0
+		posRayCast(direction < 0)
 	else:
 		velocity.x = move_toward(velocity.x, 0, atributos["speed"])
+
+func posRayCast(dir :bool):
+	if dir:
+		$RayCast2D.position = Vector2(-13,60)
+	else:
+		$RayCast2D.position = Vector2(13,60)
+
 
 func aplicar_gravedad(delta):# aplicamos gravedad
 	if not is_on_floor():
@@ -100,6 +125,7 @@ func set_state(new_state): #ejecuta las animaciones
 
 	match state:
 		"idle":
+			$RayCast2D.enabled = true
 			atributos["paracaidas_activado"] = true
 			$AnimatedSprite2D.play("Idle")
 			print(state)
@@ -116,10 +142,12 @@ func set_state(new_state): #ejecuta las animaciones
 			$AnimatedSprite2D.play("abrir_paracaidas")
 			print(state)
 		"paracaidas_equipada":
+			$RayCast2D.enabled = false
 			atributos["paracaidas_activado"] = true
 			$AnimatedSprite2D.play("paracaidas_equipada")
 			print(state)
 		"quitar_paracaidas":
+			$RayCast2D.enabled = false
 			atributos["paracaidas_activado"] = false
 			$AnimatedSprite2D.play("quitar_paracaidas")
 			print(state)
@@ -187,7 +215,7 @@ func crear_timer(tiempo: float, callback: Callable):
 func atributos_Base(key :String= "") -> Variant:
 	var base: Dictionary = {
 		"speed": 300.0,
-		"jump": -400.0,
+		"jump": -300.0,
 		"paracaidas_activado": true,## se ejecuta cuando esta en el estado_aire y determina si tiene el paracaidas o se la quito
 		
 		"estado_aire_MAX_VEL_CAIDA": 150,
