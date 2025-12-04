@@ -37,7 +37,7 @@ func _physics_process(delta: float) -> void:
 			velocity = (pos_dirigida - global_position).normalized() * SPEED
 		Estado.ESPERANDO:
 			velocity = (jugador.global_position - global_position).normalized() * SPEED
-
+	$AnimatedSprite2D.play("default")
 	move_and_slide()
 
 func deterninar_fases():
@@ -79,8 +79,8 @@ func spawn_bombas():
 	var y = top_left.y
 
 	new_bomba.global_position = Vector2(x, y)
-	$alerta.visible = true
-	$stop_ani_alesta.start(2)
+	#$alerta.visible = true
+	#$stop_ani_alesta.start(2)
 
 func spawn_bombas_fase_2(enem):
 	var enemigos : Dictionary = {

@@ -5,6 +5,7 @@ var direction: Vector2 = Vector2.DOWN  # Por defecto hacia abajo
 
 func _physics_process(delta: float) -> void:
 	position += direction * speed * delta
+	$AnimatedSprite2D.play("default")
 
 func set_direction(new_direction: Vector2) -> void:
 	direction = new_direction.normalized()

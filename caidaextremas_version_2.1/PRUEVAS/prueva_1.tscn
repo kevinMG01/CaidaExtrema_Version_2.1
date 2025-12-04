@@ -15,6 +15,7 @@ scale = Vector2(4.00781, 51.2969)
 texture = ExtResource("1_jppxf")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
 position = Vector2(-1565, 1772)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
@@ -24,4 +25,4 @@ shape = SubResource("RectangleShape2D_jyx05")
 [node name="avion" parent="." instance=ExtResource("1_7556l")]
 
 [node name="dron" parent="." instance=ExtResource("2_jppxf")]
-position = Vector2(-2629, -326)
+position = Vector2(147, 86)
