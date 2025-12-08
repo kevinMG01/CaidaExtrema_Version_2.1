@@ -7,7 +7,12 @@ var SPEED = 210.0
 var UMBRAL_X = 7.0
 
 var jugador = null
-var max_bombas = 10
+
+var bombas_conjelar_max = 2
+var bombas_relentizar_max = 4
+
+var posiciones_bombas : Array[Vector2] = []
+var distancia_minima := 30
 
 @export var fases : int = 1
 
@@ -54,31 +59,41 @@ func _on_detectar_jugador_body_entered(body: Node2D) -> void:
 		$TimerBombas.start()
 		deterninar_fases()
 
-func spawn_bombas():
+func spawn_bombas(tipoBom):
 	var bombas: Dictionary = {
 		"congelar" : preload("res://escenas/enemies/dron/bombas/congelar/congelar.tscn"),
 		"relentozar" : preload("res://escenas/enemies/dron/bombas/relentizar/relentizar.tscn")
 	}
-	
-	var tipos = bombas.keys()
-	var tipo = tipos[randi() % tipos.size()]
-	var escena_bomba = bombas[tipo]
-	
+	var escena_bomba = bombas[tipoBom]
 	var new_bomba = escena_bomba.instantiate()
 	get_tree().current_scene.add_child(new_bomba)
 
-	# centro de la pantalla = jugador
 	var center = jugador.global_position
 	var screen_size = get_viewport_rect().size
 
-	# bordes del viewport en coordenadas del mundo
 	var top_left = center - screen_size / 2
 	var top_right = center + Vector2(screen_size.x/2, -screen_size.y/2)
 
-	var x = randf_range(top_left.x, top_right.x)
-	var y = top_left.y
+	var posicion_valida = false
+	var intentos = 0
 
-	new_bomba.global_position = Vector2(x, y)
+	while not posicion_valida and intentos < 20:
+		intentos += 1
+		
+		var x = randf_range(top_left.x, top_right.x)
+		var y = top_left.y
+		var nueva_pos: Vector2 = Vector2(x, y)
+
+		posicion_valida = true
+		for p in posiciones_bombas:
+			if p.distance_to(nueva_pos) < distancia_minima:
+				posicion_valida = false
+				break
+
+		if posicion_valida:
+			posiciones_bombas.append(nueva_pos)
+
+		new_bomba.global_position = nueva_pos
 	#$alerta.visible = true
 	#$stop_ani_alesta.start(2)
 
@@ -128,8 +143,11 @@ func spawn_bombas_fase_2(enem):
 
 func _on_timer_bombas_timeout() -> void:
 	if jugador != null:
-		for i in max_bombas:
-			spawn_bombas()
+		for i in bombas_conjelar_max:
+			spawn_bombas("congelar")
+		for i in bombas_relentizar_max:
+			spawn_bombas("relentozar")
+		posiciones_bombas.clear()
 
 func _on_envestida_timeout() -> void:
 	if jugador != null:
