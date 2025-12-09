@@ -8,3 +8,5 @@ var ITEM_ELEGIDO: String = ""
 var inventario_guardado: Array = []
 
 #--------------------------------------------------
+#musica de menu
+var music_time : float = 0.0

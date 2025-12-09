@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 @export var nivel : int
 var escena : Array = [
@@ -10,12 +10,13 @@ var escena : Array = [
 	"res://escenas/menus/menu_de_niveles/zona_1_globos/nivel_5/nivel_5.tscn",
 ]
 
+
+
+
+
 func _on_retry_pressed() -> void:
 	get_tree().change_scene_to_file(escena[nivel])
-	pass # Replace with function body.
-
 
 
 func _on_menu_pressed() -> void:
 	get_tree().change_scene_to_file("res://escenas/menus/menu_principal/menu_principal.tscn")
-	pass # Replace with function body.

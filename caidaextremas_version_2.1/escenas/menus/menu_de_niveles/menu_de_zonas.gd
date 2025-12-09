@@ -7,7 +7,8 @@ extends Control
 @onready var jefes_de_esta_area = $Jefes_de_esta_area
 
 
-
+func _ready() -> void:
+	$AudioStreamPlayer2D.play(GlobalVar.music_time)
 
 func mostrar_zona(zona_mostrar: Control):
 
@@ -47,3 +48,6 @@ func _on_zona_5_button_down() -> void:
 func _on_volver_pressed() -> void:
 	get_tree().change_scene_to_file("res://escenas/menus/menu_principal/menu_principal.tscn")
 	pass # Replace with function body.
+
+func _exit_tree():
+	GlobalVar.music_time = $AudioStreamPlayer2D.get_playback_position()
