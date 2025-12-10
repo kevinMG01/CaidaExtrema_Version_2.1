@@ -1,6 +1,8 @@
 extends CanvasLayer
+var muerte : bool = false
+var player = null
 
-@export var nivel : int
+@export var nivel : int = 1
 var escena : Array = [
 	"",
 	"res://escenas/menus/menu_de_niveles/zona_1_globos/nivel_1/nivel_1.tscn",
@@ -11,6 +13,9 @@ var escena : Array = [
 ]
 
 
+func _process(delta: float) -> void:
+	if muerte and player == null:
+		self.visible = true
 
 
 
