@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://dam2d7paemmvr"]
+[gd_scene load_steps=14 format=4 uid="uid://dam2d7paemmvr"]
 
 [ext_resource type="Texture2D" uid="uid://xjhgcnaduwe3" path="res://assets/Zonas/Zona_1/Nubes y cielo dia.png" id="1_2hw6s"]
 [ext_resource type="Script" uid="uid://bj3d2bpac2cps" path="res://escenas/menus/menu_de_niveles/zona_3_ave_en_picada/nivel_13.gd" id="1_u35iq"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bousgp3icqk3c" path="res://escenas/enemies/cow/Vaca.tscn" id="4_maigb"]
 [ext_resource type="PackedScene" uid="uid://f5ppsi22200" path="res://escenas/enemies/enemigo_AVE_normal/ave_normal.tscn" id="5_miam8"]
 [ext_resource type="PackedScene" uid="uid://du5q4kj6nvh12" path="res://escenas/avion/avion.tscn" id="6_u35iq"]
+[ext_resource type="AudioStream" uid="uid://c3387kvgtr60x" path="res://assets/musics/soundcheck-314418.mp3" id="7_maigb"]
+[ext_resource type="PackedScene" uid="uid://dd7dau3nesol1" path="res://escenas/menus/menu_dead/menu_dead.tscn" id="8_eigcf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_maigb"]
 texture = ExtResource("1_2hw6s")
@@ -165,8 +167,16 @@ position = Vector2(113, 9510)
 [node name="ave_normal" parent="." instance=ExtResource("5_miam8")]
 position = Vector2(707, 7051)
 
-[node name="avion" parent="." instance=ExtResource("6_u35iq")]
+[node name="avion" parent="." node_paths=PackedStringArray("menu_dead") instance=ExtResource("6_u35iq")]
 position = Vector2(35, 342)
+menu_dead = NodePath("../MenuDead")
 camara = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_maigb")
+autoplay = true
+
+[node name="MenuDead" parent="." instance=ExtResource("8_eigcf")]
+nivel = 13
 
 [connection signal="body_entered" from="Meta" to="." method="_on_meta_body_entered"]

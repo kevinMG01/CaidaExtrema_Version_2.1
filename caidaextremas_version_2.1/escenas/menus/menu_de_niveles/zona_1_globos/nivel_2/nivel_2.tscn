@@ -124,15 +124,12 @@ shape = SubResource("RectangleShape2D_p4vfi")
 position = Vector2(643, 6306)
 shape = SubResource("RectangleShape2D_o44d8")
 
-[node name="avion" parent="." instance=ExtResource("4_p4vfi")]
+[node name="avion" parent="." node_paths=PackedStringArray("menu_dead") instance=ExtResource("4_p4vfi")]
 position = Vector2(35, 342)
+menu_dead = NodePath("../MenuDead")
 
 [node name="MenuDead" parent="." instance=ExtResource("5_1766j")]
-offset_left = 1237.0
-offset_top = 538.0
-offset_right = 1237.0
-offset_bottom = 538.0
-nivel = 1
+nivel = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_o44d8")
