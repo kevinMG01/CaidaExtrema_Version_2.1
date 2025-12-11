@@ -1,0 +1,96 @@
+[gd_scene load_steps=10 format=3 uid="uid://bqd0tj3ifchpw"]
+
+[ext_resource type="Script" uid="uid://dvxx1ddjrljh3" path="res://escenas/enemies/dron/dron.gd" id="1_vnf4a"]
+[ext_resource type="Texture2D" uid="uid://1bgxske2org1" path="res://icon.svg" id="2_cbyt1"]
+[ext_resource type="Texture2D" uid="uid://burjes5i4ax3y" path="res://assets/enemies/dron_jefe/Dron_boss sprite 1.png" id="2_semau"]
+[ext_resource type="Texture2D" uid="uid://kljjl15bgut0" path="res://assets/enemies/dron_jefe/Dron_boss sprite 2.png" id="3_oqxxp"]
+[ext_resource type="Texture2D" uid="uid://d3opm2vj7peje" path="res://assets/enemies/dron_jefe/Dron_boss sprite 3.png" id="4_jpod7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p4qq4"]
+radius = 54.037
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vnf4a"]
+size = Vector2(2590.5, 43)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vnf4a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_semau")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_oqxxp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jpod7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cbyt1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cbyt1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="dron" type="CharacterBody2D"]
+script = ExtResource("1_vnf4a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -12)
+shape = SubResource("CircleShape2D_p4qq4")
+disabled = true
+
+[node name="detectar_jugador" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detectar_jugador"]
+position = Vector2(617.75, 23.5)
+shape = SubResource("RectangleShape2D_vnf4a")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_vnf4a")
+frame = 1
+frame_progress = 0.224109
+
+[node name="alerta" type="AnimatedSprite2D" parent="."]
+visible = false
+scale = Vector2(2.74219, 2.74219)
+sprite_frames = SubResource("SpriteFrames_cbyt1")
+
+[node name="min" type="Marker2D" parent="."]
+position = Vector2(-879, 0)
+
+[node name="max" type="Marker2D" parent="."]
+position = Vector2(863, 5)
+
+[node name="TimerBombas" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="envestida" type="Timer" parent="."]
+one_shot = true
+
+[node name="regresar" type="Timer" parent="."]
+one_shot = true
+
+[node name="bomba_teledirigida" type="Timer" parent="."]
+
+[node name="spwn_enemigos" type="Timer" parent="."]
+
+[node name="stop_ani_alesta" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="detectar_jugador" to="." method="_on_detectar_jugador_body_entered"]
+[connection signal="timeout" from="TimerBombas" to="." method="_on_timer_bombas_timeout"]
+[connection signal="timeout" from="envestida" to="." method="_on_envestida_timeout"]
+[connection signal="timeout" from="regresar" to="." method="_on_regresar_timeout"]
+[connection signal="timeout" from="bomba_teledirigida" to="." method="_on_bomba_teledirigida_timeout"]
+[connection signal="timeout" from="spwn_enemigos" to="." method="_on_spwn_enemigos_timeout"]
+[connection signal="timeout" from="stop_ani_alesta" to="." method="_on_stop_ani_alesta_timeout"]

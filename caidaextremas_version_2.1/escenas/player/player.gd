@@ -2,11 +2,13 @@ extends CharacterBody2D
 
 var state: String
 
-const GRAVEDAD_NORMAL : float = 700.0
-const GRAVEDAD_PARACAIDAS : float = 300.0
+var GRAVEDAD_NORMAL : float = 700.0
+var GRAVEDAD_PARACAIDAS : float = 300.0
 
 @export var habilidad_activa: String = "dash" # dash, super_salto,etc.
 
+var cooldown_habilidad :bool = true
+var tiempo_de_cooldown : int = 3
 var  is_dashing :bool = false
 var  is_super_salto :bool = false
 
@@ -15,33 +17,48 @@ var is_dash_button :bool = false
 var atributos: Dictionary = {}
 var atributos_extras: Dictionary = {} # no esta programado, es para el futuro
 
+var determinar_si_hay_suelo = false
+var cooldown_equipamiento_paracaida = 4
+var paracaida_equipada = false
 
 var nivel_camara = 1
 
 func _ready() -> void:
 	for key in atributos_Base().keys():
 		atributos[key] = atributos_Base(key)
-		print(key)
 
 	#atributos["speed"] = 0
 
-	print(atributos)
 	atributos["speed"] = atributos_Base("speed")#para reemplasar un atributo
 	set_state("quitar_paracaidas")
-	print(atributos)
 
 func _physics_process(delta: float) -> void:
 	aplicar_gravedad(delta)
 	var direction :int = Input.get_axis("ui_left", "ui_right")
 	move(direction)
 	update_state(direction)
+	
+	#determinamos cuando el jugador cae al vasio
+	if is_on_floor():
+		determinar_si_hay_suelo = true
+	if atributos["paracaidas_activado"] and determinar_si_hay_suelo:
+		if $RayCast2D.is_colliding():
+			pass
+		else:
+			crear_timer(2, func():
+					if !state in ["paracaidas_equipada", "quitar_paracaidas"]:
+						set_state("quitar_paracaidas")
+						determinar_si_hay_suelo = false
+					)
+
 	move_and_slide()
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = atributos["jump"]
 
-	elif Input.is_action_just_pressed("ui_up") and not is_on_floor():
+
+	elif Input.is_action_just_pressed("ui_up") and not is_on_floor() and !$RayCast2D.is_colliding():
 		if atributos["paracaidas_activado"] and not is_paracaidas:
 			set_state("quitar_paracaidas")
 			is_paracaidas = true
@@ -58,12 +75,21 @@ func _input(event: InputEvent) -> void:
 				is_dash_button = false
 			)
 
+
 func move(direction): # controlamos el movimineto
 	if direction:
 		velocity.x = direction * atributos["speed"]
 		$AnimatedSprite2D.flip_h = direction < 0
+		posRayCast(direction < 0)
 	else:
 		velocity.x = move_toward(velocity.x, 0, atributos["speed"])
+
+func posRayCast(dir :bool):
+	if dir:
+		$RayCast2D.position = Vector2(-13,60)
+	else:
+		$RayCast2D.position = Vector2(13,60)
+
 
 func aplicar_gravedad(delta):# aplicamos gravedad
 	if not is_on_floor():
@@ -111,6 +137,7 @@ func set_state(new_state): #ejecuta las animaciones
 
 	match state:
 		"idle":
+			$RayCast2D.enabled = true
 			atributos["paracaidas_activado"] = true
 			$AnimatedSprite2D.play("Idle")
 			print(state)
@@ -127,10 +154,12 @@ func set_state(new_state): #ejecuta las animaciones
 			$AnimatedSprite2D.play("abrir_paracaidas")
 			print(state)
 		"paracaidas_equipada":
+			$RayCast2D.enabled = false
 			atributos["paracaidas_activado"] = true
 			$AnimatedSprite2D.play("paracaidas_equipada")
 			print(state)
 		"quitar_paracaidas":
+			$RayCast2D.enabled = false
 			atributos["paracaidas_activado"] = false
 			$AnimatedSprite2D.play("quitar_paracaidas")
 			print(state)
@@ -162,21 +191,24 @@ func ejecutar_habilidad(nombre: String):
 
 	match nombre:
 		"dash":
-			is_dashing = true
-			atributos["speed"] = 2000.0
-			crear_timer(0.08, func():
-				atributos["speed"] = atributos_Base("speed")
-				is_dashing = false
-			)
+			if cooldown_habilidad:
+				is_dashing = true
+				atributos["speed"] = 2000.0
+				crear_timer(0.08, func():
+					atributos["speed"] = atributos_Base("speed")
+					is_dashing = false
+					cooldown_habilidad = false
+					$cooldown_de_habilidad_dash.start(tiempo_de_cooldown)
+				)
 
-		"super_salto":
-			is_super_salto = true
-			atributos["jump"] = -900.0
-			crear_timer(4.0, func():
-				atributos["jump"] = atributos_Base("jump")
-				is_super_salto = false
-				
-			)
+		#"super_salto":
+			#is_super_salto = true
+			#atributos["jump"] = -900.0
+			#crear_timer(4.0, func():
+				#atributos["jump"] = atributos_Base("jump")
+				#is_super_salto = false
+				#
+			#)
 
 func crear_timer(tiempo: float, callback: Callable):
 	var timer :Timer = Timer.new()
@@ -195,7 +227,7 @@ func crear_timer(tiempo: float, callback: Callable):
 func atributos_Base(key :String= "") -> Variant:
 	var base: Dictionary = {
 		"speed": 300.0,
-		"jump": -400.0,
+		"jump": -300.0,
 		"paracaidas_activado": true,## se ejecuta cuando esta en el estado_aire y determina si tiene el paracaidas o se la quito
 		
 		"estado_aire_MAX_VEL_CAIDA": 150,
@@ -204,3 +236,30 @@ func atributos_Base(key :String= "") -> Variant:
 	if key != "":
 		return base.get(key, null)
 	return base
+
+
+func damage_bombas(new_bomba):
+	match new_bomba:
+		"relentizar":
+			atributos["speed"] = 200 
+			GRAVEDAD_NORMAL = 350.0
+			GRAVEDAD_PARACAIDAS = 150.0
+			crear_timer(3, func():
+				atributos["speed"] = atributos_Base("speed")
+				GRAVEDAD_NORMAL = 700.0
+				GRAVEDAD_PARACAIDAS = 300.0
+				)
+		"congelar":
+			atributos["speed"] = 0
+			GRAVEDAD_NORMAL = 0
+			GRAVEDAD_PARACAIDAS = 0
+			crear_timer(3, func():
+				atributos["speed"] = atributos_Base("speed")
+				GRAVEDAD_NORMAL = 700.0
+				GRAVEDAD_PARACAIDAS = 300.0
+				)
+
+
+func _on_cooldown_de_habilidad_dash_timeout() -> void:
+	cooldown_habilidad = true
+	pass # Replace with function body.

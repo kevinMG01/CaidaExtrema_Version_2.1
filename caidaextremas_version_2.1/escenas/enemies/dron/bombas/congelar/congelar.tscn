@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://b6gkvr5uf2oxq"]
+
+[ext_resource type="Script" uid="uid://c65pn7hqabgkl" path="res://escenas/enemies/dron/bombas/congelar/congelar.gd" id="1_v5ril"]
+[ext_resource type="Texture2D" uid="uid://byn6x6mm8umqq" path="res://assets/enemies/dron_jefe/Misil_Congelante sprite 1.png" id="3_amuxb"]
+[ext_resource type="Texture2D" uid="uid://dblj0roeniixv" path="res://assets/enemies/dron_jefe/Misil_Congelante sprite 2.png" id="4_pde31"]
+[ext_resource type="Texture2D" uid="uid://cakr80orth6ad" path="res://assets/enemies/dron_jefe/Misil_Congelante sprite 3.png" id="5_ertxk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7qogx"]
+radius = 25.0
+height = 128.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fl6hr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_amuxb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pde31")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ertxk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="congelar" type="Area2D"]
+script = ExtResource("1_v5ril")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 0)
+shape = SubResource("CapsuleShape2D_7qogx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_fl6hr")
+frame = 1
+frame_progress = 0.397648
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
