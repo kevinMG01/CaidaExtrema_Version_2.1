@@ -27,21 +27,19 @@ func _process(delta):
 
 func _on_nivel_1_pressed():
 	get_tree().change_scene_to_file("res://escenas/menus/menu_de_niveles/zona_1_globos/nivel_1/nivel_1.tscn")
-	pass # Replace with function body.
-
+	GlobalVar.music_time = 0.0
 
 func _on_nivel_2_pressed():
 	get_tree().change_scene_to_file("res://escenas/menus/menu_de_niveles/zona_1_globos/nivel_2/nivel_2.tscn")
-	pass # Replace with function body.
-
+	GlobalVar.music_time = 0.0
 
 func _on_nivel_3_pressed():
 	get_tree().change_scene_to_file("res://escenas/menus/menu_de_niveles/zona_1_globos/nivel_3/nivel_3.tscn")
-
+	GlobalVar.music_time = 0.0
 
 func _on_nivel_4_pressed():
 	get_tree().change_scene_to_file("res://escenas/menus/menu_de_niveles/zona_1_globos/nivel_4/nivel_4.tscn")
-
-
+	GlobalVar.music_time = 0.0
 func _on_nivel_5_pressed():
 	get_tree().change_scene_to_file("res://escenas/menus/menu_de_niveles/zona_1_globos/nivel_5/nivel_5.tscn")
+	GlobalVar.music_time = 0.0

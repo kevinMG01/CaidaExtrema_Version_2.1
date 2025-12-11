@@ -7,70 +7,74 @@
 [ext_resource type="Texture2D" uid="uid://ci1xk7i85d25s" path="res://assets/menu_dead/Button_menu_normal.png" id="4_ec1ib"]
 [ext_resource type="Texture2D" uid="uid://ccyrdh4oe0bn6" path="res://assets/menu_dead/Button_menu_pressed.png" id="5_7wums"]
 
-[node name="MenuDead" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="MenuDead" type="CanvasLayer"]
+visible = false
 script = ExtResource("1_2jpsm")
 
-[node name="fondo" type="TextureRect" parent="."]
+[node name="control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="fondo" type="TextureRect" parent="control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 1240.0
+offset_bottom = 680.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_3opx6")
 
-[node name="VBoxContainer" type="HBoxContainer" parent="."]
+[node name="VBoxContainer" type="HBoxContainer" parent="control"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -196.0
-offset_bottom = 196.0
+offset_top = 144.0
+offset_right = 961.0
+offset_bottom = 536.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="control/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 225
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="control/VBoxContainer"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="control/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 230
 
-[node name="retry" type="TextureButton" parent="VBoxContainer/VBoxContainer"]
+[node name="retry" type="TextureButton" parent="control/VBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 6
 texture_normal = ExtResource("2_2jpsm")
 texture_pressed = ExtResource("3_db5dm")
 
-[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="control/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 110
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="control/VBoxContainer"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/VBoxContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="control/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
 theme_override_constants/margin_top = 230
 
-[node name="menu" type="TextureButton" parent="VBoxContainer/VBoxContainer2"]
+[node name="menu" type="TextureButton" parent="control/VBoxContainer/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 6
 texture_normal = ExtResource("4_ec1ib")
 texture_pressed = ExtResource("5_7wums")
 
-[connection signal="pressed" from="VBoxContainer/VBoxContainer/retry" to="." method="_on_retry_pressed"]
-[connection signal="pressed" from="VBoxContainer/VBoxContainer2/menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="control/VBoxContainer/VBoxContainer/retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="control/VBoxContainer/VBoxContainer2/menu" to="." method="_on_menu_pressed"]

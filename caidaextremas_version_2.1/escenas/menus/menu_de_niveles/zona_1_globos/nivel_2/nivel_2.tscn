@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=4 uid="uid://butfpk0ts02uo"]
+[gd_scene load_steps=12 format=4 uid="uid://butfpk0ts02uo"]
 
 [ext_resource type="Texture2D" uid="uid://xjhgcnaduwe3" path="res://assets/Zonas/Zona_1/Nubes y cielo dia.png" id="1_8ajn2"]
 [ext_resource type="Script" uid="uid://bbw7kavnb218o" path="res://escenas/menus/menu_de_niveles/zona_1_globos/nivel_2/nivel_2.gd" id="1_p4vfi"]
 [ext_resource type="PackedScene" uid="uid://vh5jwq5a514g" path="res://escenas/enemies/globo/globo.tscn" id="3_1766j"]
 [ext_resource type="PackedScene" uid="uid://du5q4kj6nvh12" path="res://escenas/avion/avion.tscn" id="4_p4vfi"]
 [ext_resource type="PackedScene" uid="uid://dd7dau3nesol1" path="res://escenas/menus/menu_dead/menu_dead.tscn" id="5_1766j"]
+[ext_resource type="AudioStream" uid="uid://b4y0dvneet47g" path="res://assets/musics/beyond-the-clouds-315190.mp3" id="6_o44d8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p4vfi"]
 texture = ExtResource("1_8ajn2")
@@ -123,14 +124,15 @@ shape = SubResource("RectangleShape2D_p4vfi")
 position = Vector2(643, 6306)
 shape = SubResource("RectangleShape2D_o44d8")
 
-[node name="avion" parent="." instance=ExtResource("4_p4vfi")]
+[node name="avion" parent="." node_paths=PackedStringArray("menu_dead") instance=ExtResource("4_p4vfi")]
 position = Vector2(35, 342)
+menu_dead = NodePath("../MenuDead")
 
 [node name="MenuDead" parent="." instance=ExtResource("5_1766j")]
-offset_left = 1237.0
-offset_top = 538.0
-offset_right = 1237.0
-offset_bottom = 538.0
-nivel = 1
+nivel = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_o44d8")
+autoplay = true
 
 [connection signal="body_entered" from="Meta" to="." method="_on_meta_body_entered"]

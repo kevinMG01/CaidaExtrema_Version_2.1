@@ -3,7 +3,8 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$AudioStreamPlayer2D.play(GlobalVar.music_time)
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -18,3 +19,7 @@ func _on_jugar_pressed():
 
 func _on_inventario_pressed():
 	get_tree().change_scene_to_file("res://escenas/menus/inventario/Inventario.tscn")
+
+
+func _exit_tree():
+	GlobalVar.music_time = $AudioStreamPlayer2D.get_playback_position()
