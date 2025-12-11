@@ -125,16 +125,10 @@ position = Vector2(1134, 5180)
 
 [node name="MenuDead" parent="." instance=ExtResource("5_8pn2u")]
 
-[node name="Vaca" parent="." instance=ExtResource("5_rfy4n")]
-position = Vector2(879, 6060)
-
-[node name="avion" parent="." instance=ExtResource("5_rfy4n")]
-position = Vector2(-65, 246)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_rfy4n")
 autoplay = true
 
 [node name="player" parent="." instance=ExtResource("5_8pn2u")]
-position = Vector2(23, 211)
 
 [connection signal="body_entered" from="Meta" to="." method="_on_meta_body_entered"]
