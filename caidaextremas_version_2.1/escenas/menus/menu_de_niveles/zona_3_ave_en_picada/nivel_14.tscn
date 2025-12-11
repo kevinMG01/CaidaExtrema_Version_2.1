@@ -1,11 +1,13 @@
-[gd_scene load_steps=12 format=4 uid="uid://cxtj5jger6cj6"]
+[gd_scene load_steps=14 format=4 uid="uid://cxtj5jger6cj6"]
 
 [ext_resource type="Script" uid="uid://ciscg0ho0gler" path="res://escenas/menus/menu_de_niveles/zona_3_ave_en_picada/nivel_14.gd" id="1_2kyrc"]
 [ext_resource type="Texture2D" uid="uid://xjhgcnaduwe3" path="res://assets/Zonas/Zona_1/Nubes y cielo dia.png" id="1_ompbi"]
-[ext_resource type="PackedScene" uid="uid://yn5a0qhdejhy" path="res://escenas/player/player.tscn" id="2_2kyrc"]
 [ext_resource type="PackedScene" uid="uid://vh5jwq5a514g" path="res://escenas/enemies/globo/globo.tscn" id="3_c0t0s"]
 [ext_resource type="PackedScene" uid="uid://bousgp3icqk3c" path="res://escenas/enemies/cow/Vaca.tscn" id="4_6ghh4"]
 [ext_resource type="PackedScene" uid="uid://f5ppsi22200" path="res://escenas/enemies/enemigo_AVE_normal/ave_normal.tscn" id="5_1rtl0"]
+[ext_resource type="PackedScene" uid="uid://du5q4kj6nvh12" path="res://escenas/avion/avion.tscn" id="6_2kyrc"]
+[ext_resource type="AudioStream" uid="uid://c3387kvgtr60x" path="res://assets/musics/soundcheck-314418.mp3" id="7_c0t0s"]
+[ext_resource type="PackedScene" uid="uid://dd7dau3nesol1" path="res://escenas/menus/menu_dead/menu_dead.tscn" id="8_6ghh4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vtv2w"]
 texture = ExtResource("1_ompbi")
@@ -116,9 +118,6 @@ position = Vector2(-1.5, 3)
 shape = SubResource("RectangleShape2D_vcomn")
 debug_color = Color(0.546292, 0.56523, 0, 0.42)
 
-[node name="player" parent="." instance=ExtResource("2_2kyrc")]
-position = Vector2(657, 62)
-
 [node name="Globo" type="Node2D" parent="."]
 
 [node name="Globo" parent="Globo" instance=ExtResource("3_c0t0s")]
@@ -175,5 +174,17 @@ position = Vector2(185, 5771)
 
 [node name="ave_normal3" parent="Ave" instance=ExtResource("5_1rtl0")]
 position = Vector2(1127, 8131)
+
+[node name="avion" parent="." node_paths=PackedStringArray("menu_dead") instance=ExtResource("6_2kyrc")]
+position = Vector2(35, 342)
+menu_dead = NodePath("../MenuDead")
+camara = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_c0t0s")
+autoplay = true
+
+[node name="MenuDead" parent="." instance=ExtResource("8_6ghh4")]
+nivel = 14
 
 [connection signal="body_entered" from="Meta" to="." method="_on_meta_body_entered"]

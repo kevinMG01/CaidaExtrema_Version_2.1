@@ -7,7 +7,12 @@ extends Control
 @onready var jefes_de_esta_area = $Jefes_de_esta_area
 
 
+
 var pantalla_a_agrandar : Control
+
+
+func _ready() -> void:
+	$AudioStreamPlayer2D.play(GlobalVar.music_time)
 
 
 func mostrar_zona(zona_mostrar: Control):
@@ -46,8 +51,17 @@ func _on_zona_4_button_down() -> void:
 func _on_zona_5_button_down() -> void:
 	mostrar_zona(jefes_de_esta_area)
 
+
 func _on_agrandar_pantalla_timeout() -> void:
 	if pantalla_a_agrandar.scale >= Vector2(1 , 1):
 		$agrandar_pantalla.stop()
 		return
 	pantalla_a_agrandar.scale += Vector2(0.1 ,0.1)
+
+
+func _on_volver_pressed() -> void:
+	get_tree().change_scene_to_file("res://escenas/menus/menu_principal/menu_principal.tscn")
+	pass # Replace with function body.
+
+func _exit_tree():
+	GlobalVar.music_time = $AudioStreamPlayer2D.get_playback_position()
